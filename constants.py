@@ -1,0 +1,7 @@
+MAU_SO = "Mẫu số"
+MAU_SO_16a1 = "16a1"
+MAU_SO_16a2 = "16a2"
+MAU_SO_16c = "16c"
+MAU_SO_07 = "07"
+SO = "Số:"
+DON_VI_RUT_DU_TOAN = "Đơn vị rút dự toán:"
