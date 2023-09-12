@@ -35,17 +35,14 @@ class PythonOrgSearch(unittest.TestCase):
             return f"{day}/{month}/{year}"
         return ""
     
-    def get_model(self):
-        code = self.driver.find_element(By.XPATH, f"//span[contains(text(), '{constants.MAU_SO}')]")
-        code_value = self.extract_text(code)
-        code_value = code_value.replace(constants.MAU_SO, "")
-        return self.trim_text(code_value)
-    
     def get_content_by_key_search(self, key_search):
-        unit = self.driver.find_element(By.XPATH, "//span[contains(text(), '" + key_search + "')]")
-        unit_value = self.extract_text(unit)
-        unit_value = unit_value.replace(key_search, "")
-        return self.trim_text(unit_value)
+        try:
+            unit = self.driver.find_element(By.XPATH, f"//span[contains(text(), '{key_search}')]")
+            unit_value = self.extract_text(unit)
+            unit_value = unit_value.replace(key_search, "")
+            return self.trim_text(unit_value)
+        except Exception as e:
+            print(f"An error occurred: {e}")
     
     def get_bank_accounts_16a1(self):
         bank_accounts = self.driver.find_elements(By.XPATH, "//span[contains(text(), 'Tài khoản: ')]")
@@ -223,14 +220,14 @@ class PythonOrgSearch(unittest.TestCase):
 ##################### End common ################################
 
     def test_process_page(self):
-        self.driver.get("file:///F:/02Source/02Training/KBST/kbst.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/16a1.html")
-        # self.driver.get("file:///F:/02Source/02Training/KBST/16a2.html")
-        # self.driver.get("file:///F:/02Source/02Training/KBST/16c.html")
-        # self.driver.get("file:///F:/02Source/02Training/KBST/07.html")
-        # self.driver.get("file:///F:/02Source/02Training/KBST/0701.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/kbst.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16a1.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16a2.html")
+        # self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16c.html")
+        # self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/07.html")
+        # self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/0701.html")
 
-        code_value = self.get_model()
+        code_value = self.get_content_by_key_search("Mẫu số")
 
         if code_value == constants.MAU_SO_16a1:
             return self.process_model_16a1(code_value)
@@ -258,7 +255,7 @@ class PythonOrgSearch(unittest.TestCase):
         formatted = self.get_date()
         contents = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
         money = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_soTien_"]')
-        workbook_name = "16a1.xlsx"
+        workbook_name = "results/16a1.xlsx"
 
         return self.save_information_workbook_16a1(code, number, unit, receiver, sender_acc, receiver_acc, location, formatted, contents, money, workbook_name)
 ####################### 16a1 ##############################
@@ -278,7 +275,7 @@ class PythonOrgSearch(unittest.TestCase):
         location = self.get_content_by_key_search("Tại KBNN (NH):")
         formatted = self.get_date()
 
-        workbook_name = "16a2.xlsx"
+        workbook_name = "results/16a2.xlsx"
 
         return self.save_information_workbook_16a2_16c(code, number, unit, sender_acc, receiver_acc, contents, total, tax, paid, receiver, location, formatted, workbook_name)
 
@@ -312,7 +309,7 @@ class PythonOrgSearch(unittest.TestCase):
         paid = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_5_"]')
         location = self.get_address_of_treasury_16c()
         date = self.get_date()
-        workbook_name = "16c.xlsx"
+        workbook_name = "results/16c.xlsx"
 
         return self.save_information_workbook_16a2_16c(code, number, unit, sender_acc, receiver_acc, contents, total, tax, paid, receiver, location, date, workbook_name)
 ####################### End 16c ##############################
@@ -347,7 +344,7 @@ class PythonOrgSearch(unittest.TestCase):
             money.append(money_text)
             contents.append(elements[i+5].text)
             i += 12
-        workbook_name = "07.xlsx"
+        workbook_name = "results/07.xlsx"
 
 
         return self.save_information_workbook_07(code, number, unit, code_unit, bill_code, bill_date, dos_code, dos_date, NDKT_code, contents, money, date, workbook_name)       
