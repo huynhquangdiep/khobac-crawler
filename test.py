@@ -28,12 +28,15 @@ class PythonOrgSearch(unittest.TestCase):
         return element
 
     def extract_date(self, text):
-        pattern = r"Ngày?\s+(\d{2})?\s+tháng?\s+(\d{2})?\s+năm?\s+(\d{4})(?:\s+|$)"
-        match = re.search(pattern, text)
-        if match:
-            day, month, year = match.groups()
-            return f"{day}/{month}/{year}"
-        return ""
+        try:
+            pattern = r"Ngày?\s+(\d{2})?\s+tháng?\s+(\d{2})?\s+năm?\s+(\d{4})(?:\s+|$)"
+            match = re.search(pattern, text)
+            if match:
+                day, month, year = match.groups()
+                return f"{day}/{month}/{year}"
+            return ""
+        except Exception as e:
+            print(f"An error occurred: {e}")
     
     def get_content_by_key_search(self, key_search):
         try:
@@ -45,38 +48,35 @@ class PythonOrgSearch(unittest.TestCase):
             print(f"An error occurred: {e}")
     
     def get_bank_accounts_16a1(self):
-        bank_accounts = self.driver.find_elements(By.XPATH, "//span[contains(text(), 'Tài khoản: ')]")
-        sender_acc, receiver_acc = [self.extract_text(b) for b in bank_accounts]
-        sender_acc = sender_acc.replace("Tài khoản:", "").replace(".", "")
-        sender_acc = self.trim_text(sender_acc) 
-        sender_acc = str(sender_acc)
+        try:
+            bank_accounts = self.driver.find_elements(By.XPATH, "//span[contains(text(), 'Tài khoản: ')]")
+            sender_acc, receiver_acc = [self.extract_text(b) for b in bank_accounts]
+            sender_acc = sender_acc.replace("Tài khoản:", "").replace(".", "")
+            sender_acc = self.trim_text(sender_acc) 
+            sender_acc = str(sender_acc)
 
-        receiver_acc = receiver_acc.replace("Tài khoản:", "").replace(".", "")
-        receiver_acc = self.trim_text(receiver_acc)
-        receiver_acc = str(receiver_acc)
-        return sender_acc, receiver_acc
-    
-    def get_receiver_16a1(self):
-        receiver = self.driver.find_element(By.XPATH, "//span[contains(text(), 'Đơn vị nhận tiền:')]")
-        receiver_value = self.extract_text(receiver)
-        receiver_value = receiver_value.replace("Đơn vị nhận tiền:", "")
-        return self.trim_text(receiver_value)
+            receiver_acc = receiver_acc.replace("Tài khoản:", "").replace(".", "")
+            receiver_acc = self.trim_text(receiver_acc)
+            receiver_acc = str(receiver_acc)
+            return sender_acc, receiver_acc
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
     
     def get_date(self):
-        dates = self.driver.find_elements(By.XPATH, "//span[contains(text(), 'Ngày')]")
+        try:
+            dates = self.driver.find_elements(By.XPATH, "//span[contains(text(), 'Ngày')]")
 
-        formatted_date = ""
-        for date in dates:
-            formatted_date = self.extract_date(date.text)
-            if formatted_date:
-                break
+            formatted_date = ""
+            for date in dates:
+                formatted_date = self.extract_date(date.text)
+                if formatted_date:
+                    break
 
-        return formatted_date
-    
-    def get_element_content_by_xpath(self, xpath):
-        element = self.driver.find_element(By.XPATH, xpath)
-        return element.text
-    
+            return formatted_date
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
     def save_information_workbook_16a2_16c(self, code, number, unit, sender_acc, receiver_acc, contents, total, tax, paid, receiver, location, formatted, workbook_name):
         headers_to_check =  [
                     "Mã",
@@ -187,11 +187,10 @@ class PythonOrgSearch(unittest.TestCase):
         ]
         
         result_array = []
-        
-
+    
         for chil_bill_code, chil_bill_date, chil_dos_code, chil_dos_date, chil_NDKT_code, content, amount in zip(bill_code, bill_date, dos_code, dos_date, NDKT_code, contents, money):
             result_array.append((
-                    code,
+                    self.convert_to_string(code),
                     number,
                     unit,
                     code_unit,
@@ -218,14 +217,13 @@ class PythonOrgSearch(unittest.TestCase):
 
 
 ##################### End common ################################
-
     def test_process_page(self):
         self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/kbst.html")
         self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16a1.html")
         self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16a2.html")
-        # self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16c.html")
-        # self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/07.html")
-        # self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/0701.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16c.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/07.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/0701.html")
 
         code_value = self.get_content_by_key_search("Mẫu số")
 
@@ -274,29 +272,12 @@ class PythonOrgSearch(unittest.TestCase):
         paid = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_7_"]')
         location = self.get_content_by_key_search("Tại KBNN (NH):")
         formatted = self.get_date()
-
         workbook_name = "results/16a2.xlsx"
 
         return self.save_information_workbook_16a2_16c(code, number, unit, sender_acc, receiver_acc, contents, total, tax, paid, receiver, location, formatted, workbook_name)
-
 ####################### End 16a2 ##############################
 
-
 ####################### Start 16c ##############################
-    def get_paying_unit_16c(self):
-        unit = self.driver.find_element(By.XPATH, "//span[contains(text(), 'Đơn vị trả tiền:')]")
-        unit_value = self.extract_text(unit)
-        unit_value = unit_value.replace("Đơn vị trả tiền:", "")
-        return self.trim_text(unit_value)
-
-    
-    def get_address_of_treasury_16c(self):
-        location = self.driver.find_element(By.XPATH, "//span[contains(text(), 'Tại Kho bạc Nhà nước (NH):')]")
-        location_value = self.extract_text(location)
-        substring_to_remove = "Tại Kho bạc Nhà nước (NH):"
-        location_value = location_value.replace(substring_to_remove, "")
-        return self.trim_text(location_value)
-
     def process_model_16c(self, code):
         number = self.get_content_by_key_search("Số:")
         unit = self.get_content_by_key_search("Đơn vị trả tiền:")
@@ -307,7 +288,7 @@ class PythonOrgSearch(unittest.TestCase):
         total = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_3_"]')
         tax = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_4_"]')
         paid = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_5_"]')
-        location = self.get_address_of_treasury_16c()
+        location = self.get_content_by_key_search("Tại Kho bạc Nhà nước (NH):")
         date = self.get_date()
         workbook_name = "results/16c.xlsx"
 
@@ -345,7 +326,6 @@ class PythonOrgSearch(unittest.TestCase):
             contents.append(elements[i+5].text)
             i += 12
         workbook_name = "results/07.xlsx"
-
 
         return self.save_information_workbook_07(code, number, unit, code_unit, bill_code, bill_date, dos_code, dos_date, NDKT_code, contents, money, date, workbook_name)       
 ######################### 07 #################################
