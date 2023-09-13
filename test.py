@@ -214,33 +214,8 @@ class PythonOrgSearch(unittest.TestCase):
         else:
             df = pd.DataFrame(result_array, columns=headers_to_check)
             df.to_excel(workbook_name, index=False)
-
-
 ##################### End common ################################
-    def test_process_page(self):
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/kbst.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16a1.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16a2.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16c.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/07.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/0701.html")
-
-        code_value = self.get_content_by_key_search("Mẫu số")
-
-        if code_value == constants.MAU_SO_16a1:
-            return self.process_model_16a1(code_value)
-
-        elif code_value == constants.MAU_SO_16a2:
-            return self.process_model_16a2(code_value)
-
-        elif code_value == constants.MAU_SO_16c:
-            return self.process_model_16c(code_value)
-
-        elif code_value == constants.MAU_SO_07:
-            return self.process_model_07(code_value)
-
-        else:
-            return "Invalid case" 
+    
 
 ####################### 16a1 ##############################
     def process_model_16a1(self, code):
@@ -329,6 +304,62 @@ class PythonOrgSearch(unittest.TestCase):
 
         return self.save_information_workbook_07(code, number, unit, code_unit, bill_code, bill_date, dos_code, dos_date, NDKT_code, contents, money, date, workbook_name)       
 ######################### 07 #################################
+
+######################### Main #################################
+
+    def handle_click_event(self, items):
+        i = 1
+        for item in items:
+            item.click()
+            print(item.text)
+            i = i + 1
+        print(i)
+
+    def get_list_href(self):
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/main.html")
+        table_element = self.driver.find_element(By.CSS_SELECTOR, 'table.x11e')
+        links = table_element.find_elements(By.CSS_SELECTOR, ".xh7 a")
+
+        hrefs = []
+        i = 1
+        while i < len(links) and i + 6 < len(links): 
+            hrefs.append(links[i])
+            i = i + 6
+
+        return hrefs
+        
+    
+    def test_process_page(self):
+        # self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/kbst.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16a1.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16a2.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16c.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/07.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/0701.html")
+        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/main.html")
+
+
+        hrefs = self.get_list_href()
+        self.handle_click_event(hrefs)
+
+        # code_value = self.get_content_by_key_search("Mẫu số")
+
+        # if code_value == constants.MAU_SO_16a1:
+        #     return self.process_model_16a1(code_value)
+
+        # elif code_value == constants.MAU_SO_16a2:
+        #     return self.process_model_16a2(code_value)
+
+        # elif code_value == constants.MAU_SO_16c:
+        #     return self.process_model_16c(code_value)
+
+        # elif code_value == constants.MAU_SO_07:
+        #     return self.process_model_07(code_value)
+
+        # else:
+        #     return "Invalid case" 
+######################### End #################################
+
 
     def tearDown(self):
         self.driver.quit()
