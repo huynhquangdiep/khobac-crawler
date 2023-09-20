@@ -1,0 +1,212 @@
+1694698492169	geckodriver	INFO	Listening on 127.0.0.1:53988
+1694698495241	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "53989" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofiledGKLjf"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1694698495449	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1694698495497	Marionette	INFO	Listening on port 54028
+WebDriver BiDi listening on ws://127.0.0.1:53989
+Read port: 54028
+1694698495626	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:53989/devtools/browser/4091fd4d-3c84-4a95-9316-375ae5e6fbe2
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 3: ReferenceError: AdfLogger is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 4: ReferenceError: $ is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 20: ReferenceError: AdfDhtmlPage is not defined
+1694698496291	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 3: ReferenceError: AdfLogger is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 4: ReferenceError: $ is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 20: ReferenceError: AdfDhtmlPage is not defined
+1694698496358	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+1694698501826	Marionette	INFO	Stopped listening on port 54028
+Dynamically enable window occlusion 1
+1694698575880	geckodriver	INFO	Listening on 127.0.0.1:54162
+1694698578950	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "54163" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofilecTke9q"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1694698579133	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1694698579173	Marionette	INFO	Listening on port 54183
+WebDriver BiDi listening on ws://127.0.0.1:54163
+Read port: 54183
+1694698579309	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:54163/devtools/browser/08356acf-a8b0-418c-9362-6dd3175a3830
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 3: ReferenceError: AdfLogger is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 4: ReferenceError: $ is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 20: ReferenceError: AdfDhtmlPage is not defined
+1694698579941	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 3: ReferenceError: AdfLogger is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 4: ReferenceError: $ is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 20: ReferenceError: AdfDhtmlPage is not defined
+1694698579993	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+1694698585420	Marionette	INFO	Stopped listening on port 54183
+Dynamically enable window occlusion 1
+1694789299516	geckodriver	INFO	Listening on 127.0.0.1:51500
+1694789302559	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "51501" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofileGJPhP2"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1694789302842	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1694789302941	Marionette	INFO	Listening on port 51523
+WebDriver BiDi listening on ws://127.0.0.1:51501
+Read port: 51523
+1694789303103	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:51501/devtools/browser/0fcb3350-c5cf-4472-8002-af47125457bc
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 3: ReferenceError: AdfLogger is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 4: ReferenceError: $ is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 20: ReferenceError: AdfDhtmlPage is not defined
+1694789303837	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 3: ReferenceError: AdfLogger is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 4: ReferenceError: $ is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 20: ReferenceError: AdfDhtmlPage is not defined
+1694789303891	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+JavaScript error: file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html, line 111: ReferenceError: AdfBootstrap is not defined
+1694789309267	Marionette	INFO	Stopped listening on port 51523
+Dynamically enable window occlusion 1
+1695049566656	geckodriver	INFO	Listening on 127.0.0.1:55446
+1695049569696	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "55447" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofilePPVZR6"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695049569918	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695049569968	Marionette	INFO	Listening on port 55481
+WebDriver BiDi listening on ws://127.0.0.1:55447
+Read port: 55481
+1695049570128	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:55447/devtools/browser/c20e1dd2-fd8e-45d4-81d3-fbe6d3263bdf
+1695049570806	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1695049570864	Marionette	INFO	Stopped listening on port 55481
+Dynamically enable window occlusion 1
+console.error: (new AbortError("IndexedDB: main/partitioning-exempt-urls list() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.sys.mjs", 16))
+console.error: (new AbortError("IndexedDB: main/doh-providers list() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.sys.mjs", 16))
+console.error: (new Error("IndexedDB: main/doh-config getLastModified() IndexedDB:  execute() The application is shutting down", "resource://services-settings/IDBHelpers.sys.mjs", 16))
+1695049595711	geckodriver	INFO	Listening on 127.0.0.1:55563
+1695049598769	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "55564" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofilecU4O8n"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695049598962	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695049599003	Marionette	INFO	Listening on port 55590
+WebDriver BiDi listening on ws://127.0.0.1:55564
+Read port: 55590
+1695049599140	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:55564/devtools/browser/018e0a85-c8dc-4d1a-a23e-c591f79b6f76
+1695049599721	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1695049599771	Marionette	INFO	Stopped listening on port 55590
+Dynamically enable window occlusion 1
+console.error: Region.sys.mjs: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.sys.mjs", 411))
+console.error: services.settings: 
+  main/partitioning-exempt-urls Signature failed  TypeError: NetworkError: Network request failed
+console.error: (new NetworkError("Network error: TypeError: NetworkError: Network request failed", "resource://services-settings/RemoteSettingsClient.sys.mjs", 107))
+1695049620124	geckodriver	INFO	Listening on 127.0.0.1:55684
+1695049623186	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "55685" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofile82yJ4o"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695049623382	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695049623423	Marionette	INFO	Listening on port 55705
+WebDriver BiDi listening on ws://127.0.0.1:55685
+Read port: 55705
+1695049623561	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:55685/devtools/browser/99d61c90-55c7-47d9-a351-6733ee9c7312
+1695049624232	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1695049624281	Marionette	INFO	Stopped listening on port 55705
+Dynamically enable window occlusion 1
+console.error: services.settings: 
+  main/partitioning-exempt-urls Signature failed  TypeError: NetworkError: Network request failed
+console.error: (new AbortError("IndexedDB: main/doh-providers list() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.sys.mjs", 16))
+console.error: (new NetworkError("Network error: TypeError: NetworkError: Network request failed", "resource://services-settings/RemoteSettingsClient.sys.mjs", 107))
+console.error: (new Error("IndexedDB: main/doh-config getLastModified() IndexedDB:  execute() The application is shutting down", "resource://services-settings/IDBHelpers.sys.mjs", 16))
+1695049723708	geckodriver	INFO	Listening on 127.0.0.1:55919
+1695049726777	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "55920" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofiledejb9k"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695049726969	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695049727011	Marionette	INFO	Listening on port 55941
+WebDriver BiDi listening on ws://127.0.0.1:55920
+Read port: 55941
+1695049727145	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:55920/devtools/browser/b06bdab5-a9b8-4bae-b41d-dd7049c324b9
+1695049727793	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1695049727841	Marionette	INFO	Stopped listening on port 55941
+Dynamically enable window occlusion 1
+console.error: services.settings: 
+  main/partitioning-exempt-urls Signature failed  TypeError: NetworkError: Network request failed
+console.error: (new NetworkError("Network error: TypeError: NetworkError: Network request failed", "resource://services-settings/RemoteSettingsClient.sys.mjs", 107))
+console.error: (new AbortError("IndexedDB: main/doh-config getLastModified() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.sys.mjs", 16))
+1695049767698	geckodriver	INFO	Listening on 127.0.0.1:56030
+1695049770767	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "56031" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofileTkriX3"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695049770953	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695049770995	Marionette	INFO	Listening on port 56050
+WebDriver BiDi listening on ws://127.0.0.1:56031
+Read port: 56050
+1695049771124	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:56031/devtools/browser/5f9c0f9a-da02-417f-b4ce-56b07cd3b959
+1695049771788	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1695049771837	Marionette	INFO	Stopped listening on port 56050
+Dynamically enable window occlusion 1
+console.error: (new AbortError("IndexedDB: main/doh-providers list() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.sys.mjs", 16))
+console.error: (new Error("IndexedDB: main/doh-config getLastModified() IndexedDB:  execute() The application is shutting down", "resource://services-settings/IDBHelpers.sys.mjs", 16))
+1695049892976	geckodriver	INFO	Listening on 127.0.0.1:56241
+1695049896034	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "56242" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofilelQ8lGh"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695049896229	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695049896272	Marionette	INFO	Listening on port 56265
+WebDriver BiDi listening on ws://127.0.0.1:56242
+Read port: 56265
+1695049896418	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:56242/devtools/browser/7a7813d7-4596-4342-815f-45c89d2d20ed
+1695049897020	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1695049897075	Marionette	INFO	Stopped listening on port 56265
+Dynamically enable window occlusion 1
+console.error: services.settings: 
+  main/partitioning-exempt-urls Signature failed  TypeError: NetworkError: Network request failed
+console.error: Region.sys.mjs: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.sys.mjs", 411))
+console.error: (new NetworkError("Network error: TypeError: NetworkError: Network request failed", "resource://services-settings/RemoteSettingsClient.sys.mjs", 107))
+Invalid port. Exiting...
+Invalid port. Exiting...

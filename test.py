@@ -5,14 +5,16 @@ import openpyxl
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import re
-from selenium.webdriver.chrome.options import Options
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 import constants
+from selenium.webdriver.chrome.options import Options
 
 class PythonOrgSearch(unittest.TestCase):
 
     def setUp(self):
         chrome_options = Options()
-        chrome_options.add_argument("--headless")
+        # chrome_options.add_argument("--headless")
         self.driver = webdriver.Chrome(options=chrome_options)
 
 ###################### common ###############################
@@ -77,6 +79,18 @@ class PythonOrgSearch(unittest.TestCase):
         except Exception as e:
             print(f"An error occurred: {e}")
 
+    def export_file(self, workbook_name, headers_to_check, result_array):
+        if os.path.exists(workbook_name):
+            existing_df = pd.read_excel(workbook_name)
+            new_df = pd.DataFrame(result_array, columns=headers_to_check)
+            result_df = pd.concat([existing_df, new_df], ignore_index=True)
+
+            return result_df.to_excel(workbook_name, index=False)
+
+        else:
+            df = pd.DataFrame(result_array, columns=headers_to_check)
+            return df.to_excel(workbook_name, index=False)
+
     def save_information_workbook_16a2_16c(self, code, number, unit, sender_acc, receiver_acc, contents, total, tax, paid, receiver, location, formatted, workbook_name):
         headers_to_check =  [
                     "Mã",
@@ -113,20 +127,10 @@ class PythonOrgSearch(unittest.TestCase):
                     location,
                     formatted,
                 )) 
+            
+        return self.export_file(workbook_name, headers_to_check, result_array)
 
-        if os.path.exists(workbook_name):
-            # print(f"The file '{workbook_name}' exists.")
-            existing_df = pd.read_excel(workbook_name)
-            new_df = pd.DataFrame(result_array, columns=headers_to_check)
-            result_df = pd.concat([existing_df, new_df], ignore_index=True)
-            result_df.to_excel(workbook_name, index=False)
-
-        else:
-            # print(f"The file '{workbook_name}' does not exist.")
-            df = pd.DataFrame(result_array, columns=headers_to_check)
-            df.to_excel(workbook_name, index=False)
-
-    def save_information_workbook_16a1(self, code, number, unit, receiver, sender_acc, receiver_acc, location, formatted, contents, money, workbook_name):
+    def save_information_workbook_16a1_16c1(self, code, number, unit, receiver, sender_acc, receiver_acc, location, formatted, contents, money, workbook_name):
         headers_to_check = [
             "Mã",
             "Số",
@@ -157,18 +161,7 @@ class PythonOrgSearch(unittest.TestCase):
                     formatted,
                 )) 
        
-
-        if os.path.exists(workbook_name):
-            # print(f"The file '{workbook_name}' exists.")
-            existing_df = pd.read_excel(workbook_name)
-            new_df = pd.DataFrame(result_array, columns=headers_to_check)
-            result_df = pd.concat([existing_df, new_df], ignore_index=True)
-            result_df.to_excel(workbook_name, index=False)
-
-        else:
-            # print(f"The file '{workbook_name}' does not exist.")
-            df = pd.DataFrame(result_array, columns=headers_to_check)
-            df.to_excel(workbook_name, index=False)
+        return self.export_file(workbook_name, headers_to_check, result_array)
 
     def save_information_workbook_07(self, code, number, unit, code_unit, bill_code, bill_date, dos_code, dos_date, NDKT_code, contents, money, date, workbook_name): 
         headers_to_check = [
@@ -203,17 +196,9 @@ class PythonOrgSearch(unittest.TestCase):
                     amount,
                     date,
                 ))  
-
-        if os.path.exists(workbook_name):
-            # print(f"The file '{workbook_name}' exists.")
-            existing_df = pd.read_excel(workbook_name)
-            new_df = pd.DataFrame(result_array, columns=headers_to_check)
-            result_df = pd.concat([existing_df, new_df], ignore_index=True)
-            result_df.to_excel(workbook_name, index=False)
-
-        else:
-            df = pd.DataFrame(result_array, columns=headers_to_check)
-            df.to_excel(workbook_name, index=False)
+            
+        return self.export_file(workbook_name, headers_to_check, result_array)
+    
 ##################### End common ################################
     
 
@@ -225,12 +210,12 @@ class PythonOrgSearch(unittest.TestCase):
         sender_acc = self.convert_to_string(self.get_bank_accounts_16a1()[0])
         receiver_acc = self.convert_to_string(self.get_bank_accounts_16a1()[1])
         location = self.get_content_by_key_search("Tại KBNN (NH):")
-        formatted = self.get_date()
+        date = self.get_date()
         contents = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
         money = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_soTien_"]')
         workbook_name = "results/16a1.xlsx"
 
-        return self.save_information_workbook_16a1(code, number, unit, receiver, sender_acc, receiver_acc, location, formatted, contents, money, workbook_name)
+        return self.save_information_workbook_16a1_16c1(code, number, unit, receiver, sender_acc, receiver_acc, location, date, contents, money, workbook_name)
 ####################### 16a1 ##############################
 
     
@@ -246,10 +231,10 @@ class PythonOrgSearch(unittest.TestCase):
         tax = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_6_"]')
         paid = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_7_"]')
         location = self.get_content_by_key_search("Tại KBNN (NH):")
-        formatted = self.get_date()
+        date = self.get_date()
         workbook_name = "results/16a2.xlsx"
 
-        return self.save_information_workbook_16a2_16c(code, number, unit, sender_acc, receiver_acc, contents, total, tax, paid, receiver, location, formatted, workbook_name)
+        return self.save_information_workbook_16a2_16c(code, number, unit, sender_acc, receiver_acc, contents, total, tax, paid, receiver, location, date, workbook_name)
 ####################### End 16a2 ##############################
 
 ####################### Start 16c ##############################
@@ -269,6 +254,22 @@ class PythonOrgSearch(unittest.TestCase):
 
         return self.save_information_workbook_16a2_16c(code, number, unit, sender_acc, receiver_acc, contents, total, tax, paid, receiver, location, date, workbook_name)
 ####################### End 16c ##############################
+
+####################### Start 16c1 ##############################
+    def process_model_16c1(self, code):
+        number = self.get_content_by_key_search("Số:")
+        unit = self.get_content_by_key_search("Đơn vị trả tiền:")
+        receiver = self.get_content_by_key_search("Đơn vị nhận tiền:")
+        sender_acc = self.convert_to_string(self.get_bank_accounts_16a1()[0])
+        receiver_acc = self.convert_to_string(self.get_bank_accounts_16a1()[1])
+        contents = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
+        money = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_3_"]')
+        location = self.get_content_by_key_search("Tại Kho bạc Nhà nước (NH):")
+        date = self.get_date()
+        workbook_name = "results/16c1.xlsx"
+
+        return self.save_information_workbook_16a1_16c1(code, number, unit, receiver, sender_acc, receiver_acc, location, date, contents, money, workbook_name)
+####################### End 16c1 ##############################
 
 ######################### 07 #################################
     def process_model_07(self, code):
@@ -307,16 +308,10 @@ class PythonOrgSearch(unittest.TestCase):
 
 ######################### Main #################################
 
-    def handle_click_event(self, items):
-        i = 1
-        for item in items:
-            item.click()
-            print(item.text)
-            i = i + 1
-        print(i)
+    
 
     def get_list_href(self):
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/main.html")
+        self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html")
         table_element = self.driver.find_element(By.CSS_SELECTOR, 'table.x11e')
         links = table_element.find_elements(By.CSS_SELECTOR, ".xh7 a")
 
@@ -327,42 +322,58 @@ class PythonOrgSearch(unittest.TestCase):
             i = i + 6
 
         return hrefs
-        
     
+    def handle_click_event(self, items):
+        i = 1
+        for item in items:
+            item.click()
+            print(item.text)
+            i = i + 1
+        print(i)
+
+    def detect_iframe(self):
+        code_value = self.get_content_by_key_search("Mẫu số")
+
+        if code_value == constants.MAU_SO_16a1:
+            return self.process_model_16a1(code_value)
+
+        elif code_value == constants.MAU_SO_16a2:
+            return self.process_model_16a2(code_value)
+
+        elif code_value == constants.MAU_SO_16c:
+            return self.process_model_16c(code_value)
+        
+        elif code_value == constants.MAU_SO_16c1:
+            return self.process_model_16c1(code_value)
+
+        elif code_value == constants.MAU_SO_07:
+            return self.process_model_07(code_value)
+
+        else:
+            return True
+
+        
     def test_process_page(self):
-        # self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/kbst.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16a1.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16a2.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/16c.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/07.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/0701.html")
-        self.driver.get("file:///F:/02Source/02Training/KBST/khobac-crawler/types/main.html")
+
+        self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/kbst.html")
+        self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16a1.html")
+        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16a2.html")
+        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16c.html")
+        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16c1.html")
+        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/07.html")
+        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/0701.html")
+        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/main.html")
 
 
-        hrefs = self.get_list_href()
-        self.handle_click_event(hrefs)
+        # hrefs = self.get_list_href()
+        # self.handle_click_event(hrefs)
 
-        # code_value = self.get_content_by_key_search("Mẫu số")
-
-        # if code_value == constants.MAU_SO_16a1:
-        #     return self.process_model_16a1(code_value)
-
-        # elif code_value == constants.MAU_SO_16a2:
-        #     return self.process_model_16a2(code_value)
-
-        # elif code_value == constants.MAU_SO_16c:
-        #     return self.process_model_16c(code_value)
-
-        # elif code_value == constants.MAU_SO_07:
-        #     return self.process_model_07(code_value)
-
-        # else:
-        #     return "Invalid case" 
+        
 ######################### End #################################
 
 
-    def tearDown(self):
-        self.driver.quit()
+    # def tearDown(self):
+    #     self.driver.quit()
 
 
 if __name__ == "__main__":
