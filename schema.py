@@ -7,11 +7,11 @@ class Content(BaseModel):
     invoice_id: str
 
     class Config:
-        orm_mode = True
+        from_attributes  = True
 
 class Invoice(BaseModel):
     code_invoice: str
-    number_of_invoice: int
+    number_of_invoice: str
     organization: str
     organization_code: str
     document_number: str
@@ -22,5 +22,5 @@ class Invoice(BaseModel):
     date: str
 
     class Config:
-        orm_mode = True
+        from_attributes  = True
     

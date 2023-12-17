@@ -5,20 +5,27 @@ from sqlalchemy.sql import func
 
 Base  = declarative_base()
 
-class Content(Base):
-    __tablename__ = 'content'
-    id = Column(Integer, primary_key=True)
-    content = Column(String, index=True)
+    # Content table model
+class ContentModel(Base):
+    __tablename__ = "content"
+
+    id = Column(Integer, primary_key=True, index=True)
+    content = Column(String)
     money = Column(Float)
     time_created = Column(DateTime(timezone=True), server_default=func.now())
     time_updated = Column(DateTime(timezone=True), onupdate=func.now())
-    invoice_id = Column(String, ForeignKey('invoice.code_invoice'))
 
-    Invoice = relationship('Invoice')
+    invoice_id = Column(String, ForeignKey("invoice.code_invoice"))
 
-class Invoice(Base):
-    __tablename__ = 'invoice'
-    code_invoice  = Column(String, primary_key=True, index=True)
+    # Relationship with Invoice table
+    invoice = relationship("InvoiceModel", back_populates="contents")
+
+
+# Invoice table model
+class InvoiceModel(Base):
+    __tablename__ = "invoice"
+
+    code_invoice = Column(String, primary_key=True, index=True)
     number_of_invoice = Column(String)
     organization = Column(String)
     organization_code = Column(String)
@@ -30,3 +37,8 @@ class Invoice(Base):
     date = Column(String)
     time_created = Column(DateTime(timezone=True), server_default=func.now())
     time_updated = Column(DateTime(timezone=True), onupdate=func.now())
+
+    # Relationship with Content table
+    contents = relationship("ContentModel", back_populates="invoice")
+
+    
