@@ -9,6 +9,7 @@ from schema import Content
 from schema import Invoice
 from models import ContentModel
 from models import InvoiceModel
+from schema import InvoiceContents
 import os
 from dotenv import load_dotenv
 from fastapi import HTTPException
@@ -82,8 +83,34 @@ async def invoice():
     invoice = db.session.query(InvoiceModel).all()
     return invoice
 
+@app.get("/get-invoice-detail")
+def get_invoice(invoice_id: str):
+
+    invoice = db.session.query(
+        InvoiceModel).join(ContentModel).filter(
+            InvoiceModel.invoice_id == invoice_id,
+            ContentModel.invoice_id == invoice_id
+        ).first()
+
+    result = InvoiceContents(
+        code_invoice= invoice.code_invoice,
+        invoice_id= invoice.invoice_id,
+        organization= invoice.organization,
+        organization_code= invoice.organization_code,
+        document_number= invoice.document_number,
+        document_date= invoice.document_date,
+        organization_received= invoice.organization_received,
+        bank_account= invoice.bank_account,
+        location= invoice.location,
+        date= invoice.date,
+        contents= invoice.contents
+    )
+    
+    return result
+
+
 @app.post('/create_invoice_with_contents')
-def create_invoice_with_contents(invoice: Invoice):
+def create_invoice_with_contents(invoice: InvoiceContents):
     try:
         # Create an instance of InvoiceModel
         db_invoice = InvoiceModel(
@@ -122,9 +149,8 @@ def create_invoice_with_contents(invoice: Invoice):
     except Exception as e:
         # Log the error or handle it as needed
         print(f"Error creating invoice: {e}")
-        raise HTTPException(status_code=500, detail="Internal Server Error")
     
 
 # To run locally
 if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8000)
+    uvicorn.run(app, host='0.0.0.0', port=8002, reload=True)

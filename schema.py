@@ -23,4 +23,10 @@ class Invoice(BaseModel):
 
     class Config:
         from_attributes  = True
+
+class InvoiceContents(Invoice):
+    contents: list[Content]
+
+    class Config:
+        from_attributes  = True
     

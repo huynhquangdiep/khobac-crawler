@@ -10,12 +10,11 @@ class ContentModel(Base):
     __tablename__ = "content"
 
     id = Column(Integer, primary_key=True, index=True)
+    invoice_id = Column(String, ForeignKey("invoice.invoice_id"))
     content = Column(String)
     money = Column(Float)
     time_created = Column(DateTime(timezone=True), server_default=func.now())
     time_updated = Column(DateTime(timezone=True), onupdate=func.now())
-
-    invoice_id = Column(String, ForeignKey("invoice.invoice_id"))
 
     # Relationship with Invoice table
     invoice = relationship("InvoiceModel", back_populates="contents")
