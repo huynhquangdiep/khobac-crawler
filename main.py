@@ -15,6 +15,9 @@ from dotenv import load_dotenv
 from fastapi import HTTPException
 load_dotenv('.env')
 from datetime import datetime
+import tantivy
+from index import index
+
 app = FastAPI()
 
 # to avoid csrftokenError
@@ -111,6 +114,7 @@ def get_invoice(invoice_id: str):
 
 @app.post('/create_invoice_with_contents')
 def create_invoice_with_contents(invoice: InvoiceContents):
+    # Declaring our schema.
     try:
         # Create an instance of InvoiceModel
         db_invoice = InvoiceModel(
@@ -126,11 +130,22 @@ def create_invoice_with_contents(invoice: InvoiceContents):
             date=invoice.date,
             time_updated=datetime.utcnow()  # Set time_updated to the current time
         )
-
+        writer = index.writer()
         # Create instances of ContentModel and associate them with the invoice
         for content_data in invoice.contents:
             db_content = ContentModel(**content_data.dict())
             db_invoice.contents.append(db_content)
+            print(content_data.invoice_id)
+            print(type(content_data.invoice_id))
+            print(content_data.content)
+            print(type(content_data.content))
+
+            writer.add_document(tantivy.Document(
+                invoice_id=[content_data.invoice_id],
+                content=[content_data.content],
+            ))
+            writer.commit()
+
         # Add to session and commit changes
         db.session.add(db_invoice)
         db.session.commit()
@@ -150,6 +165,32 @@ def create_invoice_with_contents(invoice: InvoiceContents):
         # Log the error or handle it as needed
         print(f"Error creating invoice: {e}")
     
+
+
+@app.get("/search-invoice")
+def get_invoice(text: str):
+    searcher = index.searcher()
+    query = index.parse_query(text, ["invoice_id", "content"])
+
+
+    search_results = searcher.search(query, 10)
+    print(search_results)
+    result = []
+    for score, doc_address in search_results.hits:
+        # Retrieve the document
+        document = searcher.doc(doc_address)
+        content = document.get_first("content")
+        invoice_id = document.get_first("invoice_id")
+
+        template = {
+            'content': content,
+            'invoice_id': invoice_id
+        }
+
+        result.append(template)
+
+        
+    return result
 
 # To run locally
 if __name__ == '__main__':

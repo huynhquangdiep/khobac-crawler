@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 class Content(BaseModel):
     content: str
-    money: float
+    money: int
     invoice_id: str
 
     class Config:
