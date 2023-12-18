@@ -56,7 +56,7 @@ async def create_invoice(invoice: Invoice):
     try:
         db_invoice = InvoiceModel(
             code_invoice=invoice.code_invoice, 
-            number_of_invoice=invoice.number_of_invoice,
+            invoice_id=invoice.invoice_id,
             organization=invoice.organization, 
             organization_code=invoice.organization_code,
             document_number=invoice.document_number, 
@@ -88,7 +88,7 @@ def create_invoice_with_contents(invoice: Invoice):
         # Create an instance of InvoiceModel
         db_invoice = InvoiceModel(
             code_invoice=invoice.code_invoice, 
-            number_of_invoice=invoice.number_of_invoice,
+            invoice_id=invoice.invoice_id,
             organization=invoice.organization, 
             organization_code=invoice.organization_code,
             document_number=invoice.document_number, 

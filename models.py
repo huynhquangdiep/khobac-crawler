@@ -15,7 +15,7 @@ class ContentModel(Base):
     time_created = Column(DateTime(timezone=True), server_default=func.now())
     time_updated = Column(DateTime(timezone=True), onupdate=func.now())
 
-    invoice_id = Column(String, ForeignKey("invoice.code_invoice"))
+    invoice_id = Column(String, ForeignKey("invoice.invoice_id"))
 
     # Relationship with Invoice table
     invoice = relationship("InvoiceModel", back_populates="contents")
@@ -25,8 +25,8 @@ class ContentModel(Base):
 class InvoiceModel(Base):
     __tablename__ = "invoice"
 
-    code_invoice = Column(String, primary_key=True, index=True)
-    number_of_invoice = Column(String)
+    invoice_id = Column(String, primary_key=True, index=True)
+    code_invoice = Column(String)
     organization = Column(String)
     organization_code = Column(String)
     document_number = Column(String)

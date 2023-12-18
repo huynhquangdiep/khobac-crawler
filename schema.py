@@ -11,7 +11,7 @@ class Content(BaseModel):
 
 class Invoice(BaseModel):
     code_invoice: str
-    number_of_invoice: str
+    invoice_id: str
     organization: str
     organization_code: str
     document_number: str
