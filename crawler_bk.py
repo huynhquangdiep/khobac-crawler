@@ -233,9 +233,9 @@ class PythonOrgSearch(unittest.TestCase):
 
 ######################### 07 #################################
     def process_model_07(self, code):
-        invoice_id = self.get_content_by_key_search("Số:")
-        organization = self.get_content_by_key_search("Đơn vị sử dụng Ngân sách:")
-        organization_code = self.convert_to_string(self.get_content_by_key_search("Mã đơn vị:"))
+        number = self.get_content_by_key_search("Số:")
+        unit = self.get_content_by_key_search("Đơn vị sử dụng Ngân sách:")
+        code_unit = self.convert_to_string(self.get_content_by_key_search("Mã đơn vị:"))
         date = self.get_date()
 
         # Find all div elements inside elements with class 'jrtableframe'
@@ -262,41 +262,8 @@ class PythonOrgSearch(unittest.TestCase):
             contents.append(elements[i+5].text)
             i += 12
         workbook_name = "results/" + constants.YEAR_MONTH_FOLDER +   "/07.xlsx"
-        return workbook_name
-    
 
-    # def process_model_07(self, code):
-    #     number = self.get_content_by_key_search("Số:")
-    #     unit = self.get_content_by_key_search("Đơn vị sử dụng Ngân sách:")
-    #     code_unit = self.convert_to_string(self.get_content_by_key_search("Mã đơn vị:"))
-    #     date = self.get_date()
-
-    #     # Find all div elements inside elements with class 'jrtableframe'
-    #     elements = self.driver.find_elements("css selector", ".jrtableframe div")
-
-    #     i = 16
-    #     bill_code = []
-    #     bill_date = []
-    #     dos_code = []
-    #     dos_date = []
-    #     NDKT_code = []
-    #     money = []
-    #     contents = []
-
-    #     while i < len(elements) and i + 12 < len(elements):
-    #         bill_code.append(self.convert_to_string(elements[i].text))
-    #         bill_date.append(elements[i+1].text)
-    #         dos_code.append(self.convert_to_string(elements[i+2].text))
-    #         dos_date.append(elements[i+3].text)
-    #         NDKT_code.append(self.convert_to_string(elements[i+4].text))
-    #         subdiv = elements[i+8].find_elements(By.XPATH, './/div')
-    #         money_text = subdiv[0].text.replace(".", "")
-    #         money.append(money_text)
-    #         contents.append(elements[i+5].text)
-    #         i += 12
-    #     workbook_name = "results/" + constants.YEAR_MONTH_FOLDER +   "/07.xlsx"
-
-    #     return self.save_information_workbook_07(code, number, unit, code_unit, bill_code, bill_date, dos_code, dos_date, NDKT_code, contents, money, date, workbook_name)       
+        return self.save_information_workbook_07(code, number, unit, code_unit, bill_code, bill_date, dos_code, dos_date, NDKT_code, contents, money, date, workbook_name)       
 ######################### 07 #################################
 
 ######################### Main #################################
@@ -398,7 +365,7 @@ class PythonOrgSearch(unittest.TestCase):
 
     def handle_iframe(self, i, j):
         try: 
-            # self.driver.switch_to.frame(1)
+            self.driver.switch_to.frame(1)
             code_value = self.get_content_by_key_search("Mẫu số")
         except Exception as e:
             print(f"Loop: {e}")
@@ -435,43 +402,17 @@ class PythonOrgSearch(unittest.TestCase):
         time.sleep(5)
         self.handle_close_modal()
         return self.driver.switch_to.parent_frame()
-
-
-
-
-
-    def internal_testing(self): 
-        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/07.html")
-
-        code_value = self.get_content_by_key_search("Mẫu số")
         
-        if code_value == constants.MAU_SO_16a1:
-            self.process_model_16a1(code_value)
-        
-        elif code_value == constants.MAU_SO_16a2:
-            self.process_model_16a2(code_value)
-
-        elif code_value == constants.MAU_SO_16c:
-            self.process_model_16c(code_value)
-        
-        elif code_value == constants.MAU_SO_16c1:
-            self.process_model_16c1(code_value)
-
-        elif code_value == constants.MAU_SO_07:
-            self.process_model_07(code_value)
-
-        print('ok')
-
-
-
     def test_process_page(self):
-        self.internal_testing()
-        
-        # self.login()
-        # hrefs = self.get_list_href()
-        # self.handle_click_event(hrefs)
+        self.login()
+        hrefs = self.get_list_href()
+        self.handle_click_event(hrefs)
 
 ######################### End #################################
+
+
+    # def tearDown(self):
+        # self.driver.quit()
 
 
 if __name__ == "__main__":
