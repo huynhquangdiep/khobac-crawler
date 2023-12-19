@@ -1,3 +1,4 @@
+import json
 import time
 import os
 import pandas as pd 
@@ -13,6 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from openpyxl import Workbook
 import csv
 from selenium.common.exceptions import NoSuchElementException
+import requests
 
 class PythonOrgSearch(unittest.TestCase):
 
@@ -242,62 +244,43 @@ class PythonOrgSearch(unittest.TestCase):
         elements = self.driver.find_elements("css selector", ".jrtableframe div")
 
         i = 16
-        bill_code = []
-        bill_date = []
-        dos_code = []
-        dos_date = []
-        NDKT_code = []
-        money = []
         contents = []
 
         while i < len(elements) and i + 12 < len(elements):
-            bill_code.append(self.convert_to_string(elements[i].text))
-            bill_date.append(elements[i+1].text)
-            dos_code.append(self.convert_to_string(elements[i+2].text))
-            dos_date.append(elements[i+3].text)
-            NDKT_code.append(self.convert_to_string(elements[i+4].text))
-            subdiv = elements[i+8].find_elements(By.XPATH, './/div')
+            subdiv = elements[i + 8].find_elements(By.XPATH, './/div')
             money_text = subdiv[0].text.replace(".", "")
-            money.append(money_text)
-            contents.append(elements[i+5].text)
+            money_value = int(money_text) if money_text.isdigit() else None  # Convert money to an integer if it's a digit
+            contents.append({
+                "content": elements[i + 5].text,
+                "money": money_value,
+                "bill_code": elements[i].text,
+                "bill_date": elements[i + 1].text,
+            })
             i += 12
-        workbook_name = "results/" + constants.YEAR_MONTH_FOLDER +   "/07.xlsx"
-        return workbook_name
-    
+        
+        data = {
+           "invoice_id": invoice_id,
+           "code_invoice": code,
+           "organization": organization,
+           "organization_code": organization_code,
+           "date": date,
+           "contents": contents
+        }
 
-    # def process_model_07(self, code):
-    #     number = self.get_content_by_key_search("Số:")
-    #     unit = self.get_content_by_key_search("Đơn vị sử dụng Ngân sách:")
-    #     code_unit = self.convert_to_string(self.get_content_by_key_search("Mã đơn vị:"))
-    #     date = self.get_date()
+        data = json.dumps(data, ensure_ascii=False)
+        url = "http://127.0.0.1:8000/create_invoice_with_contents"
+        # Set the headers (assuming 'Content-Type' is 'application/json')
+        headers = {'Content-Type': 'application/json'}
+        # Send the POST request
+        response = requests.post(url, data=data, headers=headers)
 
-    #     # Find all div elements inside elements with class 'jrtableframe'
-    #     elements = self.driver.find_elements("css selector", ".jrtableframe div")
-
-    #     i = 16
-    #     bill_code = []
-    #     bill_date = []
-    #     dos_code = []
-    #     dos_date = []
-    #     NDKT_code = []
-    #     money = []
-    #     contents = []
-
-    #     while i < len(elements) and i + 12 < len(elements):
-    #         bill_code.append(self.convert_to_string(elements[i].text))
-    #         bill_date.append(elements[i+1].text)
-    #         dos_code.append(self.convert_to_string(elements[i+2].text))
-    #         dos_date.append(elements[i+3].text)
-    #         NDKT_code.append(self.convert_to_string(elements[i+4].text))
-    #         subdiv = elements[i+8].find_elements(By.XPATH, './/div')
-    #         money_text = subdiv[0].text.replace(".", "")
-    #         money.append(money_text)
-    #         contents.append(elements[i+5].text)
-    #         i += 12
-    #     workbook_name = "results/" + constants.YEAR_MONTH_FOLDER +   "/07.xlsx"
-
-    #     return self.save_information_workbook_07(code, number, unit, code_unit, bill_code, bill_date, dos_code, dos_date, NDKT_code, contents, money, date, workbook_name)       
-######################### 07 #################################
+        # Check the response
+        if response.status_code == 200:
+            print("Request was successful!")
+            print(response.json())  # If the API returns JSON, you can print the response content
+        else:
+            print(f"Request failed with status code: {response.status_code}")
+            print(response.text)  # Print the response content for debugging
 
 ######################### Main #################################
     def login(self):
@@ -441,7 +424,7 @@ class PythonOrgSearch(unittest.TestCase):
 
 
     def internal_testing(self): 
-        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/07.html")
+        self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/07.html")
 
         code_value = self.get_content_by_key_search("Mẫu số")
         

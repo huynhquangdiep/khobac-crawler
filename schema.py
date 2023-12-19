@@ -2,9 +2,11 @@
 from pydantic import BaseModel
 
 class Content(BaseModel):
+    invoice_id: str
+    bill_code: str
+    bill_date: str
     content: str
     money: int
-    invoice_id: str
 
     class Config:
         from_attributes  = True

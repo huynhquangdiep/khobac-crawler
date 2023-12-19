@@ -193,4 +193,4 @@ def search_invoice(text: str):
 # To run locally
 if __name__ == '__main__':
     module = "main:app"
-    uvicorn.run(module, host='0.0.0.0', port=8002, reload=True)
+    uvicorn.run(module, host='0.0.0.0', port=8000, reload=True)

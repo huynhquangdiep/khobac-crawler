@@ -11,6 +11,8 @@ class ContentModel(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     invoice_id = Column(String, ForeignKey("invoice.invoice_id"))
+    bill_code = Column(String)
+    bill_date = Column(String)
     content = Column(String)
     money = Column(Float)
     time_created = Column(DateTime(timezone=True), server_default=func.now())
