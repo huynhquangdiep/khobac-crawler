@@ -87,7 +87,7 @@ async def invoice():
     return invoice
 
 @app.get("/get-invoice-detail")
-def get_invoice(invoice_id: str):
+def get_invoice_detail(invoice_id: str):
 
     invoice = db.session.query(
         InvoiceModel).join(ContentModel).filter(
@@ -130,23 +130,20 @@ def create_invoice_with_contents(invoice: InvoiceContents):
             date=invoice.date,
             time_updated=datetime.utcnow()  # Set time_updated to the current time
         )
-        writer = index.writer()
         # Create instances of ContentModel and associate them with the invoice
+        writer = index.writer()
         for content_data in invoice.contents:
             db_content = ContentModel(**content_data.dict())
             db_invoice.contents.append(db_content)
-            print(content_data.invoice_id)
-            print(type(content_data.invoice_id))
-            print(content_data.content)
-            print(type(content_data.content))
 
             writer.add_document(tantivy.Document(
                 invoice_id=[content_data.invoice_id],
                 content=[content_data.content],
+                money=[str(content_data.money)]
             ))
             writer.commit()
+        index.reload()
 
-        # Add to session and commit changes
         db.session.add(db_invoice)
         db.session.commit()
         db.session.refresh(db_invoice)
@@ -168,12 +165,11 @@ def create_invoice_with_contents(invoice: InvoiceContents):
 
 
 @app.get("/search-invoice")
-def get_invoice(text: str):
+def search_invoice(text: str):
+    index.reload()
     searcher = index.searcher()
-    query = index.parse_query(text, ["invoice_id", "content"])
-
-
-    search_results = searcher.search(query, 10)
+    query = index.parse_query(text, ["invoice_id", "content", "money"])
+    search_results = searcher.search(query, 100)
     print(search_results)
     result = []
     for score, doc_address in search_results.hits:
@@ -181,10 +177,12 @@ def get_invoice(text: str):
         document = searcher.doc(doc_address)
         content = document.get_first("content")
         invoice_id = document.get_first("invoice_id")
+        money = document.get_first("money")
 
         template = {
             'content': content,
-            'invoice_id': invoice_id
+            'invoice_id': invoice_id,
+            'money': money
         }
 
         result.append(template)
@@ -194,4 +192,5 @@ def get_invoice(text: str):
 
 # To run locally
 if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8002, reload=True)
+    module = "main:app"
+    uvicorn.run(module, host='0.0.0.0', port=8002, reload=True)
