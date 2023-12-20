@@ -1,4 +1,3 @@
-
 from pydantic import ValidationError
 from sqlalchemy import create_engine
 import uvicorn
@@ -114,6 +113,9 @@ def get_invoice_detail(invoice_id: str):
 
 @app.post('/create_invoice_with_contents')
 def create_invoice_with_contents(invoice: InvoiceContents):
+
+    print(invoice)
+
     # Declaring our schema.
     try:
         # Create an instance of InvoiceModel
@@ -137,8 +139,8 @@ def create_invoice_with_contents(invoice: InvoiceContents):
             db_invoice.contents.append(db_content)
 
             writer.add_document(tantivy.Document(
-                invoice_id=[content_data.invoice_id],
-                content=[content_data.content],
+                invoice_id=[str(content_data.invoice_id)],
+                content=[str(content_data.content)],
                 money=[str(content_data.money)]
             ))
             writer.commit()
@@ -150,13 +152,13 @@ def create_invoice_with_contents(invoice: InvoiceContents):
 
         return db_invoice
 
-    except ValueError as ve:
-        # Handle the case where the conversion fails
-        raise HTTPException(status_code=422, detail=f"Invalid integer format: {ve}")
+    # except ValueError as ve:
+    #     # Handle the case where the conversion fails
+    #     raise HTTPException(status_code=422, detail=f"Invalid integer format: {ve}")
 
-    except ValidationError as ve:
-        # Capture and return validation errors
-        raise HTTPException(status_code=422, detail=ve.errors())
+    # except ValidationError as ve:
+    #     # Capture and return validation errors
+    #     raise HTTPException(status_code=422, detail=ve.errors())
 
     except Exception as e:
         # Log the error or handle it as needed
@@ -193,4 +195,4 @@ def search_invoice(text: str):
 # To run locally
 if __name__ == '__main__':
     module = "main:app"
-    uvicorn.run(module, host='0.0.0.0', port=8000, reload=True)
+    uvicorn.run(module, host='0.0.0.0', port=8002, reload=True)

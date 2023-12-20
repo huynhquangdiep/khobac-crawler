@@ -143,101 +143,159 @@ class PythonOrgSearch(unittest.TestCase):
         ]
 
         return self.export_file(workbook_name, headers_to_check, result_array)
-
-
-    def save_information_workbook_07(self, code, number, unit, code_unit, bill_code, bill_date, dos_code, dos_date, NDKT_code, contents, money, date, workbook_name):
-        headers_to_check = [
-            "Mã", "Số", "Đơn vị sử dụng Ngân sách", "Mã đơn vị",
-            "Số hóa đơn", "Ngày hóa đơn", "Số chứng từ", "Ngày chứng từ",
-            "Mã NDKT", "Nội Dung", "Số Tiền", "Ngày"
-        ]
-        
-        result_array = [
-            (
-                self.convert_to_string(code), number, unit, code_unit, chil_bill_code, chil_bill_date,
-                chil_dos_code, chil_dos_date, chil_NDKT_code, content, amount, date
-            )
-            for chil_bill_code, chil_bill_date, chil_dos_code, chil_dos_date, chil_NDKT_code, content, amount in zip(bill_code, bill_date, dos_code, dos_date, NDKT_code, contents, money)
-        ]  
-            
-        return self.export_file(workbook_name, headers_to_check, result_array)
 ##################### End common ################################
     
     
 ####################### 16a1 ##############################
     def process_model_16a1(self, code):
-        number = self.get_content_by_key_search("Số:")
-        unit = self.get_content_by_key_search("Đơn vị rút dự toán:")
-        receiver = self.get_content_by_key_search("Đơn vị nhận tiền:")
-        sender_acc = self.convert_to_string(self.get_bank_accounts_16a1()[0])
-        receiver_acc = self.convert_to_string(self.get_bank_accounts_16a1()[1])
-        location = self.get_content_by_key_search("Tại KBNN (NH):")
-        date = self.get_date()
-        contents = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
+        invoice_id = self.get_content_by_key_search("Số:")
+        content_arr = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
         money = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_soTien_"]')
-        workbook_name = "results/" + constants.YEAR_MONTH_FOLDER + "/16a1.xlsx"
+        
+        contents = []
+        i = 1
+        while i < len(content_arr):
+            contents.append({
+                "invoice_id": invoice_id,
+                "content": content_arr[i].text,
+                "money": money[i].text.replace(".", ""),
+                "bill_code": None,
+                "bill_date": None,
+            })
+            i = i + 1
 
-        return self.save_information_workbook_16a1_16c1(code, number, unit, receiver, sender_acc, receiver_acc, location, date, contents, money, workbook_name)
-    
+        data = {
+            "invoice_id": invoice_id,
+            "code_invoice": code,
+            "organization": self.get_content_by_key_search("Đơn vị rút dự toán:"),
+            "organization_code": None,
+            "document_number": "",
+            "document_date": "",
+            "organization_received": self.get_content_by_key_search("Đơn vị nhận tiền:"),
+            "bank_account": self.get_bank_accounts_16a1()[1],
+            "location": self.get_content_by_key_search("Tại KBNN (NH):"),
+            "date": self.get_date(),
+            "contents": contents
+        }
+
+        data = json.dumps(data, ensure_ascii=True)
+        self.store_data(data)
+
 ####################### 16a1 ##############################
     
 ####################### Function of 16a2 ######################
     def process_model_16a2(self, code):
-        number = self.get_content_by_key_search("Số:")
-        unit = self.get_content_by_key_search("Đơn vị rút dự toán:")
-        receiver = self.get_content_by_key_search("Đơn vị nhận tiền:")
-        sender_acc = self.convert_to_string(self.get_bank_accounts_16a1()[0])
-        receiver_acc = self.convert_to_string(self.get_bank_accounts_16a1()[1])
-        contents = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
-        total = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_5_"]')
-        tax = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_6_"]')
-        paid = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_7_"]')
-        location = self.get_content_by_key_search("Tại KBNN (NH):")
-        date = self.get_date()
-        workbook_name = "results/" + constants.YEAR_MONTH_FOLDER +  "/16a2.xlsx"
+        invoice_id = self.get_content_by_key_search("Số:")
+        content_arr = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
+        money = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_5_"]')
+        
+        contents = []
+        i = 1
+        while i < len(content_arr):
+            contents.append({
+                "invoice_id": invoice_id,
+                "content": content_arr[i].text,
+                "money": money[i].text.replace(".", ""),
+                "bill_code": None,
+                "bill_date": None,
+            })
+            i = i + 1
 
-        return self.save_information_workbook_16a2_16c(code, number, unit, sender_acc, receiver_acc, contents, total, tax, paid, receiver, location, date, workbook_name)
+        data = {
+            "invoice_id": invoice_id,
+            "code_invoice": code,
+            "organization": self.get_content_by_key_search("Đơn vị rút dự toán:"),
+            "organization_code": None,
+            "document_number": "",
+            "document_date": "",
+            "organization_received": self.get_content_by_key_search("Đơn vị nhận tiền:"),
+            "bank_account": self.get_bank_accounts_16a1()[1],
+            "location": self.get_content_by_key_search("Tại KBNN (NH):"),
+            "date": self.get_date(),
+            "contents": contents
+        }
+
+        data = json.dumps(data, ensure_ascii=True)
+        self.store_data(data)
 ####################### End 16a2 ##############################
 
 ####################### Start 16c ##############################
     def process_model_16c(self, code):
-        number = self.get_content_by_key_search("Số:")
-        unit = self.get_content_by_key_search("Đơn vị trả tiền:")
-        receiver = self.get_content_by_key_search("Đơn vị nhận tiền:")
-        sender_acc = self.convert_to_string(self.get_bank_accounts_16a1()[0])
-        receiver_acc = self.convert_to_string(self.get_bank_accounts_16a1()[1])
-        contents = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
-        total = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_3_"]')
-        tax = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_4_"]')
-        paid = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_5_"]')
-        location = self.get_content_by_key_search("Tại Kho bạc Nhà nước (NH):")
-        date = self.get_date()
-        workbook_name = "results/" + constants.YEAR_MONTH_FOLDER +  "/16c.xlsx"
+        invoice_id = self.get_content_by_key_search("Số:")
+        content_arr = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
+        money = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_3_"]')
+        
+        contents = []
+        i = 1
+        while i < len(content_arr):
+            contents.append({
+                "invoice_id": invoice_id,
+                "content": content_arr[i].text,
+                "money": money[i].text.replace(".", ""),
+                "bill_code": None,
+                "bill_date": None,
+            })
+            i = i + 1
 
-        return self.save_information_workbook_16a2_16c(code, number, unit, sender_acc, receiver_acc, contents, total, tax, paid, receiver, location, date, workbook_name)
+        data = {
+            "invoice_id": invoice_id,
+            "code_invoice": code,
+            "organization": self.get_content_by_key_search("Đơn vị trả tiền:"),
+            "organization_code": None,
+            "document_number": "",
+            "document_date": "",
+            "organization_received": self.get_content_by_key_search("Đơn vị nhận tiền:"),
+            "bank_account": self.get_bank_accounts_16a1()[1],
+            "location": self.get_content_by_key_search("Tại Kho bạc Nhà nước (NH):"),
+            "date": self.get_date(),
+            "contents": contents
+        }
+
+        data = json.dumps(data, ensure_ascii=True)
+        self.store_data(data)
 ####################### End 16c ##############################
 
 ####################### Start 16c1 ##############################
     def process_model_16c1(self, code):
-        number = self.get_content_by_key_search("Số:")
-        unit = self.get_content_by_key_search("Đơn vị trả tiền:")
-        receiver = self.get_content_by_key_search("Đơn vị nhận tiền:")
-        sender_acc = self.convert_to_string(self.get_bank_accounts_16a1()[0])
-        receiver_acc = self.convert_to_string(self.get_bank_accounts_16a1()[1])
-        contents = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
+        invoice_id = self.get_content_by_key_search("Số:")
+        content_arr = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_0_"]')
         money = self.driver.find_elements(By.CSS_SELECTOR, '.jrcel[class*="cel_3_"]')
-        location = self.get_content_by_key_search("Tại Kho bạc Nhà nước (NH):")
-        date = self.get_date()
-        workbook_name = "results/" + constants.YEAR_MONTH_FOLDER +  "/16c1.xlsx"
+        
+        contents = []
+        i = 1
+        while i < len(content_arr):
+            contents.append({
+                "invoice_id": invoice_id,
+                "content": content_arr[i].text,
+                "money": money[i].text.replace(".", ""),
+                "bill_code": None,
+                "bill_date": None,
+            })
+            i = i + 1
 
-        return  self.save_information_workbook_16a1_16c1(code, number, unit, receiver, sender_acc, receiver_acc, location, date, contents, money, workbook_name)
+        data = {
+            "invoice_id": invoice_id,
+            "code_invoice": code,
+            "organization": self.get_content_by_key_search("Đơn vị trả tiền:"),
+            "organization_code": None,
+            "document_number": "",
+            "document_date": "",
+            "organization_received": self.get_content_by_key_search("Đơn vị nhận tiền:"),
+            "bank_account": self.get_bank_accounts_16a1()[1],
+            "location": self.get_content_by_key_search("Tại Kho bạc Nhà nước (NH):"),
+            "date": self.get_date(),
+            "contents": contents
+        }
+
+        data = json.dumps(data, ensure_ascii=True)
+        self.store_data(data)
 ####################### End 16c1 ##############################
 
 ######################### 07 #################################
     def process_model_07(self, code):
         invoice_id = self.get_content_by_key_search("Số:")
         organization = self.get_content_by_key_search("Đơn vị sử dụng Ngân sách:")
-        organization_code = self.convert_to_string(self.get_content_by_key_search("Mã đơn vị:"))
+        organization_code = self.get_content_by_key_search("Mã đơn vị:")
         date = self.get_date()
 
         # Find all div elements inside elements with class 'jrtableframe'
@@ -251,6 +309,7 @@ class PythonOrgSearch(unittest.TestCase):
             money_text = subdiv[0].text.replace(".", "")
             money_value = int(money_text) if money_text.isdigit() else None  # Convert money to an integer if it's a digit
             contents.append({
+                "invoice_id": invoice_id,
                 "content": elements[i + 5].text,
                 "money": money_value,
                 "bill_code": elements[i].text,
@@ -259,25 +318,42 @@ class PythonOrgSearch(unittest.TestCase):
             i += 12
         
         data = {
-           "invoice_id": invoice_id,
-           "code_invoice": code,
-           "organization": organization,
-           "organization_code": organization_code,
-           "date": date,
-           "contents": contents
+            "invoice_id": invoice_id,
+            "code_invoice": code,
+            "organization": organization,
+            "organization_code": organization_code,
+            "document_number": "",
+            "document_date": "",
+            "organization_received": "",
+            "bank_account": "",
+            "location": "",
+            "date": date,
+            "contents": contents
         }
 
-        data = json.dumps(data, ensure_ascii=False)
-        url = "http://127.0.0.1:8000/create_invoice_with_contents"
+        data = json.dumps(data, ensure_ascii=True)
+        self.store_data(data)
+
+
+    def  store_data(self, data):
+        url = "http://127.0.0.1:8002/create_invoice_with_contents"
         # Set the headers (assuming 'Content-Type' is 'application/json')
         headers = {'Content-Type': 'application/json'}
         # Send the POST request
-        response = requests.post(url, data=data, headers=headers)
+        try:
+            response = requests.post(url, data=data, headers=headers)
+            response.raise_for_status()  # Raises an HTTPError for bad responses (4xx and 5xx status codes)
+            # Process the response content if needed
+        except requests.exceptions.RequestException as e:
+            print(f"Error making the request: {e}")
 
         # Check the response
-        if response.status_code == 200:
+        if response:
+            print("*" * 20)
             print("Request was successful!")
-            print(response.json())  # If the API returns JSON, you can print the response content
+            print("*" * 20)
+            print(response)  # If the API returns JSON, you can print the response content
+            print("*" * 20)
         else:
             print(f"Request failed with status code: {response.status_code}")
             print(response.text)  # Print the response content for debugging
@@ -421,11 +497,15 @@ class PythonOrgSearch(unittest.TestCase):
 
 
 
-
-
     def internal_testing(self): 
-        self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/07.html")
+        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/07.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/07.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a1.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a2.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c.html")
+        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c1.html")
 
+    
         code_value = self.get_content_by_key_search("Mẫu số")
         
         if code_value == constants.MAU_SO_16a1:
