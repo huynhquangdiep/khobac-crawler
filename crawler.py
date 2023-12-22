@@ -339,14 +339,13 @@ class PythonOrgSearch(unittest.TestCase):
 
 
     def internal_testing(self): 
-        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/07.html")
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/07.html")
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a1.html")
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a2.html")
-        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c.html")
+        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c.html")
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c1.html")
 
-        self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/07.html")
+        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/07.html")
         # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16a1.html")
         # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16a2.html")
         # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16c.html")

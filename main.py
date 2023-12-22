@@ -16,12 +16,20 @@ load_dotenv('.env')
 from datetime import datetime
 import tantivy
 from index import index
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
 # to avoid csrftokenError
 app.add_middleware(DBSessionMiddleware, db_url=os.environ['DATABASE_URL'])
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+    allow_credentials=True,
+)
 
 @app.get("/")
 async def root():
@@ -141,7 +149,8 @@ def create_invoice_with_contents(invoice: InvoiceContents):
             writer.add_document(tantivy.Document(
                 invoice_id=[str(content_data.invoice_id)],
                 content=[str(content_data.content)],
-                money=[str(content_data.money)]
+                money=[str(content_data.money)],
+                organization=[str(invoice.organization)],
             ))
             writer.commit()
         index.reload()
@@ -180,11 +189,13 @@ def search_invoice(text: str):
         content = document.get_first("content")
         invoice_id = document.get_first("invoice_id")
         money = document.get_first("money")
+        organization = document.get_first("organization")
 
         template = {
             'content': content,
             'invoice_id': invoice_id,
-            'money': money
+            'money': money,
+            'organization': organization
         }
 
         result.append(template)
