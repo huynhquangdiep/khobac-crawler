@@ -3,7 +3,6 @@ import time
 import os
 import pandas as pd 
 import unittest
-import openpyxl
 from selenium.webdriver.common.by import By
 import re
 from selenium import webdriver
@@ -11,8 +10,6 @@ from selenium.webdriver.firefox.options import Options
 import constants
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from openpyxl import Workbook
-import csv
 from selenium.common.exceptions import NoSuchElementException
 import requests
 
@@ -20,9 +17,9 @@ class PythonOrgSearch(unittest.TestCase):
 
     def setUp(self):
         firefox_options = Options()
-        # firefox_options.add_argument("--headless")
+        firefox_options.add_argument("--headless")
         self.driver = webdriver.Firefox(options=firefox_options)
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
 
         # Define folder paths
         result_folder_path = os.path.join("results", constants.YEAR_MONTH_FOLDER)
@@ -95,90 +92,142 @@ class PythonOrgSearch(unittest.TestCase):
         except Exception as e:
             print(f"An error occurred: {e}")
 
+    def get_signature_dates(self):
+        responses = self.driver.find_elements(By.XPATH, "//*[contains(text(), 'Người ký:')]")
+        
+        get_signature_date_1 = None
+        get_signature_date_2 = None 
+
+        i = 1
+        while i < len(responses):
+            # Define the pattern for matching the date and time
+            pattern = r"Ngày ký: (\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2})"
+            # Use re.search to find the pattern in the text
+            match = re.search(pattern, responses[i].text)
+            # If there's a match, print the extracted date and time
+            if match:
+                if i == 1:
+                    get_signature_date_1 = match.group(1)
+                else:  
+                    get_signature_date_2 = match.group(1)
+            else:
+                print("Pattern not found.")
+            i = i +2
+
+        return [get_signature_date_1, get_signature_date_2]
+            
     
 ##################### End common ################################
 
 ######################### 07 #################################
     def process_model_07(self, code):
         invoice_id = self.get_content_by_key_search("Số:")
+        parts = invoice_id.split()
+        sub_invoice_id = parts[-1]
         organization = self.get_content_by_key_search("Đơn vị sử dụng Ngân sách:")
         organization_code = self.get_content_by_key_search("Mã đơn vị:")
-        date = self.get_date()
-
-        # Find all div elements inside elements with class 'jrtableframe'
+        organization_received = self.get_content_by_key_search("Đơn vị nhận tiền:")
+        get_signature_dates = self.get_signature_dates()
         elements = self.driver.find_elements("css selector", ".jrtableframe div")
 
         i = 16
-        contents = []
-
+        data_response = []
         while i < len(elements) and i + 12 < len(elements):
             subdiv = elements[i + 8].find_elements(By.XPATH, './/div')
             money_text = subdiv[0].text.replace(".", "")
             money_value = int(money_text) if money_text.isdigit() else None  # Convert money to an integer if it's a digit
-            contents.append({
+            
+            data = {
+                "id": invoice_id + elements[i + 5].text,
+                "code_invoice": code,
                 "invoice_id": invoice_id,
-                "content": elements[i + 5].text,
-                "money": money_value,
-                "bill_code": elements[i].text,
-                "bill_date": elements[i + 1].text,
-            })
+                "sub_invoice_id": sub_invoice_id, 
+                "organization": organization,
+                "organization_code": organization_code,
+                "bill_code":elements[i].text,
+                "bill_date":elements[i + 1].text,
+                "NDKT_code":elements[i+4].text,
+                "economic_code":elements[i+6].text,
+                "NSNN_code":elements[i+7].text,
+                "content":elements[i + 5].text,
+                "money":money_value,
+                "organization_received": organization_received,
+                "bank_account": "",
+                "location": "",
+                "signature_date_1": get_signature_dates[0], 
+                "signature_date_2": get_signature_dates[1]
+            }
             i += 12
-        
-        data = {
-            "invoice_id": invoice_id,
-            "code_invoice": code,
-            "organization": organization,
-            "organization_code": organization_code,
-            "document_number": "",
-            "document_date": "",
-            "organization_received": "",
-            "bank_account": "",
-            "location": "",
-            "date": date,
-            "contents": contents
-        }
+            data_response = json.dumps(data, ensure_ascii=True)
+            self.store_data(data_response)
 
-        data = json.dumps(data, ensure_ascii=True)
-        return self.store_data(data)
+        return True
 
     def process_model(self, code, content_selector, money_selector, organization_search_key, location_search_key):
         invoice_id = self.get_content_by_key_search("Số:")
+        parts = invoice_id.split()
+        sub_invoice_id = parts[-1]
+        get_signature_dates = self.get_signature_dates()
+        invoice_id = self.get_content_by_key_search("Số:")
         content_arr = self.driver.find_elements(By.CSS_SELECTOR, content_selector)
         money = self.driver.find_elements(By.CSS_SELECTOR, money_selector)
-        
-        contents = []
+        organization = self.get_content_by_key_search(organization_search_key)
+        organization_received = self.get_content_by_key_search("Đơn vị nhận tiền:")
+        bank_account = self.get_bank_accounts_16a1()[1]
+        location = self.get_content_by_key_search(location_search_key)
+
+        NDKT_code_arr = []
+        chapter_code_arr = []
+        economic_code_arr = []
+        NSNN_code_arr = []
+
+        if code == constants.MAU_SO_16a1 or code == constants.MAU_SO_16a2: 
+            NDKT_code_arr = self.driver.find_elements(By.CSS_SELECTOR, ".jrcel[class*='cel_1_']")
+            chapter_code_arr = self.driver.find_elements(By.CSS_SELECTOR, ".jrcel[class*='cel_2_']")
+            economic_code_arr = self.driver.find_elements(By.CSS_SELECTOR, ".jrcel[class*='cel_3_']")
+            NSNN_code_arr = self.driver.find_elements(By.CSS_SELECTOR, ".jrcel[class*='cel_4_']")
+
+        elif code == constants.MAU_SO_16c:
+            NSNN_code_arr = self.driver.find_elements(By.CSS_SELECTOR, ".jrcel[class*='cel_1_']")
+            content_arr = content_arr[:-1]
+            money = money[:-1]
+         
+        elif code == constants.MAU_SO_16c1:
+            content_arr = content_arr[:-1]
+            money = money[:-1]
+ 
         i = 1
         while i < len(content_arr):
-            contents.append({
+            data = {
+                "id": invoice_id + content_arr[i].text,
+                "code_invoice": code,
                 "invoice_id": invoice_id,
-                "content": content_arr[i].text,
-                "money": money[i].text.replace(".", ""),
-                "bill_code": None,
-                "bill_date": None,
-            })
+                "sub_invoice_id": sub_invoice_id, 
+                "organization": organization,
+                "organization_code": None,
+                "bill_code":None,
+                "bill_date":None,
+                "NDKT_code": NDKT_code_arr[i].text if NDKT_code_arr != [] else None, 
+                "chapter_code": chapter_code_arr[i].text if chapter_code_arr != [] else None,
+                "economic_code": economic_code_arr[i].text if economic_code_arr != [] else None,
+                "NSNN_code": NSNN_code_arr[i].text if NSNN_code_arr != [] else None,
+                "content":content_arr[i].text,
+                "money":money[i].text.replace(".", ""),
+                "organization_received": organization_received,
+                "bank_account": bank_account,
+                "location": location,
+                "signature_date_1": get_signature_dates[0], 
+                "signature_date_2": get_signature_dates[1]
+            }
+            # output.append(data)
             i = i + 1
-
-        data = {
-            "invoice_id": invoice_id,
-            "code_invoice": code,
-            "organization": self.get_content_by_key_search(organization_search_key),
-            "organization_code": None,
-            "document_number": "",
-            "document_date": "",
-            "organization_received": self.get_content_by_key_search("Đơn vị nhận tiền:"),
-            "bank_account": self.get_bank_accounts_16a1()[1],
-            "location": self.get_content_by_key_search(location_search_key),
-            "date": self.get_date(),
-            "contents": contents
-        }
-
-        data = json.dumps(data, ensure_ascii=True)
-        return self.store_data(data)
-
+            data_response = json.dumps(data, ensure_ascii=True)
+            self.store_data(data_response)
+        # return True
 
     def  store_data(self, data):
-        url = "http://127.0.0.1:8002/create_invoice_with_contents"
-        # Set the headers (assuming 'Content-Type' is 'application/json')
+        url = constants.API_URL
+        # Set the headers (assuming 'ContentType' is 'application/json')
         headers = {'Content-Type': 'application/json'}
         # Send the POST request
         try:
@@ -341,8 +390,8 @@ class PythonOrgSearch(unittest.TestCase):
     def internal_testing(self): 
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/07.html")
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a1.html")
-        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a2.html")
-        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c.html")
+        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a2.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c.html")
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c1.html")
 
         # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/07.html")

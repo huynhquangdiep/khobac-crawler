@@ -21,3 +21,5 @@ PASSWORD = "Lechich@123"
 YEAR = "%H23%"
 YEAR_MONTH = "%2309%"
 YEAR_MONTH_FOLDER = "2309"
+
+API_URL = "http://127.0.0.1:8002/invoices"

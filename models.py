@@ -1,45 +1,29 @@
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Float
+from sqlalchemy import Column, DateTime, String, func
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
-from sqlalchemy.sql import func
 
-Base  = declarative_base()
-
-    # Content table model
-class ContentModel(Base):
-    __tablename__ = "content"
-
-    id = Column(Integer, primary_key=True, index=True)
-    invoice_id = Column(String, ForeignKey("invoice.invoice_id"))
-    bill_code = Column(String)
-    bill_date = Column(String)
-    content = Column(String)
-    money = Column(Float)
-    time_created = Column(DateTime(timezone=True), server_default=func.now())
-    time_updated = Column(DateTime(timezone=True), onupdate=func.now())
-
-    # Relationship with Invoice table
-    invoice = relationship("InvoiceModel", back_populates="contents")
-
+Base = declarative_base()
 
 # Invoice table model
 class InvoiceModel(Base):
     __tablename__ = "invoice"
-
-    invoice_id = Column(String, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True)
+    invoice_id = Column(String)
     code_invoice = Column(String)
+    sub_invoice_id = Column(String)
     organization = Column(String)
     organization_code = Column(String)
-    document_number = Column(String)
-    document_date = Column(String)
+    bill_code = Column(String)  # Fixed the colon to equal sign here
+    bill_date = Column(String)  # Fixed the colon to equal sign here
+    NDKT_code = Column(String)
+    chapter_code = Column(String)
+    economic_code = Column(String)
+    NSNN_code = Column(String)
+    content = Column(String)
+    money = Column(String)
     organization_received = Column(String)
     bank_account = Column(String)
     location = Column(String)
-    date = Column(String)
+    signature_date_1 = Column(String)
+    signature_date_2 = Column(String)
     time_created = Column(DateTime(timezone=True), server_default=func.now())
     time_updated = Column(DateTime(timezone=True), onupdate=func.now())
-
-    # Relationship with Content table
-    contents = relationship("ContentModel", back_populates="invoice")
-
-    
