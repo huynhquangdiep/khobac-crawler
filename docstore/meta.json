@@ -5,32 +5,22 @@
   },
   "segments": [
     {
-      "segment_id": "16397f7b-946e-4d99-876f-6f9d65bacb92",
-      "max_doc": 23,
+      "segment_id": "a78d48fa-3ee3-4c68-8ae6-fc8805fa7266",
+      "max_doc": 15,
       "deletes": null
     },
     {
-      "segment_id": "bbd097c3-8bb8-488c-b164-5ab5785fced1",
+      "segment_id": "efb08d66-c112-4a12-b2c2-0832ec320282",
       "max_doc": 1,
       "deletes": null
     },
     {
-      "segment_id": "636cda05-e551-4631-822e-90a9f4d996a6",
+      "segment_id": "eb122a02-308d-4bf0-8eab-45423b01d45b",
       "max_doc": 1,
       "deletes": null
     },
     {
-      "segment_id": "7354042e-f024-482a-b62c-f4199d43769e",
-      "max_doc": 1,
-      "deletes": null
-    },
-    {
-      "segment_id": "02412649-d185-41b5-8039-836f60912f73",
-      "max_doc": 1,
-      "deletes": null
-    },
-    {
-      "segment_id": "63aff063-f16b-494a-a0ce-388ce6eff6cb",
+      "segment_id": "41b28922-3f3e-4c5f-84f1-0be17153353f",
       "max_doc": 1,
       "deletes": null
     }
@@ -74,7 +64,98 @@
         "stored": true,
         "fast": false
       }
+    },
+    {
+      "name": "organization",
+      "type": "text",
+      "options": {
+        "indexing": {
+          "record": "position",
+          "fieldnorms": true,
+          "tokenizer": "default"
+        },
+        "stored": true,
+        "fast": false
+      }
+    },
+    {
+      "name": "bill_code",
+      "type": "text",
+      "options": {
+        "indexing": {
+          "record": "position",
+          "fieldnorms": true,
+          "tokenizer": "default"
+        },
+        "stored": true,
+        "fast": false
+      }
+    },
+    {
+      "name": "NDKT_code",
+      "type": "text",
+      "options": {
+        "indexing": {
+          "record": "position",
+          "fieldnorms": true,
+          "tokenizer": "default"
+        },
+        "stored": true,
+        "fast": false
+      }
+    },
+    {
+      "name": "economic_code",
+      "type": "text",
+      "options": {
+        "indexing": {
+          "record": "position",
+          "fieldnorms": true,
+          "tokenizer": "default"
+        },
+        "stored": true,
+        "fast": false
+      }
+    },
+    {
+      "name": "NSNN_code",
+      "type": "text",
+      "options": {
+        "indexing": {
+          "record": "position",
+          "fieldnorms": true,
+          "tokenizer": "default"
+        },
+        "stored": true,
+        "fast": false
+      }
+    },
+    {
+      "name": "organization_received",
+      "type": "text",
+      "options": {
+        "indexing": {
+          "record": "position",
+          "fieldnorms": true,
+          "tokenizer": "default"
+        },
+        "stored": true,
+        "fast": false
+      }
+    },
+    {
+      "name": "chapter_code",
+      "type": "text",
+      "options": {
+        "indexing": {
+          "record": "position",
+          "fieldnorms": true,
+          "tokenizer": "default"
+        },
+        "stored": true,
+        "fast": false
+      }
     }
   ],
-  "opstamp": 98
+  "opstamp": 36
 }

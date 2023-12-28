@@ -1,3 +1,4 @@
+from collections import defaultdict
 from operator import and_
 from pydantic import ValidationError
 from sqlalchemy import create_engine, func
@@ -68,6 +69,42 @@ async def invoice():
     invoice = db.session.query(InvoiceModel).all()
     return invoice
 
+@app.get('/get-invoice-detail')
+async def get_invoice_detail(invoice_id: str):
+    invoices = db.session.query(InvoiceModel).filter(InvoiceModel.invoice_id == invoice_id).all()
+
+    result = defaultdict(dict)
+
+    for invoice in invoices:
+        invoice_id = invoice.invoice_id
+        # Remove unnecessary fields for the summary
+        summary_fields = ["bank_account", "location", "signature_date_1", "signature_date_2",
+                        "invoice_id", "time_created", "organization", "time_updated",
+                        "code_invoice", "organization_code", "sub_invoice_id", "organization_received"]
+        summary_data = {field: getattr(invoice, field, None) for field in summary_fields}
+        
+        # Create or update the dictionary for the current invoice_id
+        if invoice_id not in result:
+            result[invoice_id] = summary_data
+            result[invoice_id]["details"] = []
+        
+        # Append details to the "details" list
+        result[invoice_id]["details"].append({
+            "id": invoice.id,
+            "NDKT_code": invoice.NDKT_code,
+            "chapter_code": invoice.chapter_code,
+            "economic_code": invoice.economic_code,
+            "NSNN_code": invoice.NSNN_code,
+            "content": invoice.content,
+            "money": invoice.money,
+            "bill_code": invoice.bill_code,
+            "bill_date": invoice.bill_date,
+            # Add other fields as needed
+        })
+
+    return list(result.values())
+
+
 
 @app.get("/fulltext-search-invoice")
 def fulltext_search_invoice(text: str):
@@ -105,21 +142,16 @@ def fulltext_search_invoice(text: str):
         }
 
         result.append(template)
+    return result
 
 
 @app.get("/search-invoices")
 def search_invoices(
     invoice_id: str = None,
     organization: str = None,
-    code_invoice: str = None,
     content: str = None,
     money: str = None,
-    bill_code: str = None,
-    NDKT_code: str = None,
-    economic_code: str = None,
-    NSNN_code: str = None,
     organization_received:  str = None,
-    chapter_code: str = None,
     signature_date_1_start: str = None,
     signature_date_1_end: str = None,
 ):
@@ -132,32 +164,14 @@ def search_invoices(
     if organization:
         query = query.filter(func.unaccent(InvoiceModel.organization).ilike(func.unaccent(f"%{organization}%")))
 
-    if code_invoice:
-        query = query.filter(InvoiceModel.code_invoice == code_invoice)
-
     if content:
         query = query.filter(func.unaccent(InvoiceModel.content).ilike(func.unaccent(f"%{content}%")))
 
     if money:
         query = query.filter(InvoiceModel.money == money)
 
-    if bill_code:
-        query = query.filter(InvoiceModel.bill_code == bill_code)
-
-    if NDKT_code:
-        query = query.filter(InvoiceModel.NDKT_code == NDKT_code)
-
-    if economic_code:
-        query = query.filter(InvoiceModel.economic_code == economic_code)
-
-    if NSNN_code:
-        query = query.filter(InvoiceModel.NSNN_code == NSNN_code)
-
     if organization_received:
         query = query.filter(func.unaccent(InvoiceModel.organization_received).ilike(func.unaccent(f"%{organization_received}%")))
-
-    if chapter_code:
-        query = query.filter(InvoiceModel.chapter_code == chapter_code)
 
     if signature_date_1_start and signature_date_1_end:
         query = query.filter(
