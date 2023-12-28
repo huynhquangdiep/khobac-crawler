@@ -138,7 +138,7 @@ class PythonOrgSearch(unittest.TestCase):
             money_value = int(money_text) if money_text.isdigit() else None  # Convert money to an integer if it's a digit
             
             data = {
-                "id": invoice_id + elements[i + 5].text,
+                "id": invoice_id + elements[i + 5].text + elements[i].text,
                 "code_invoice": code,
                 "invoice_id": invoice_id,
                 "sub_invoice_id": sub_invoice_id, 
@@ -149,7 +149,7 @@ class PythonOrgSearch(unittest.TestCase):
                 "NDKT_code":elements[i+4].text,
                 "economic_code":elements[i+6].text,
                 "NSNN_code":elements[i+7].text,
-                "content":elements[i + 5].text,
+                "content":elements[i + 5].text + " " + elements[i].text,
                 "money":money_value,
                 "organization_received": organization_received,
                 "bank_account": "",

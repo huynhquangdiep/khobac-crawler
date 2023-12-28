@@ -2352,8 +2352,8 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1:64127
-1703662946989	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "641 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilej4vfLe"
+Exiting due to channel error.
+::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "641 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilej4vfLe"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2396,8 +2396,9 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1:61940
-1703663114269	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "619 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile95YHJg"
+Exiting due to channel error.
+Exiting due to channel error.
+"C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "619 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile95YHJg"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2418,8 +2419,9 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1:49939
-1703663153332	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "499 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile7WquTY"
+Exiting due to channel error.
+Exiting due to channel error.
+"C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "499 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile7WquTY"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2569,8 +2571,9 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1:62631
-1703663845764	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "626 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileCjQVnb"
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofile43FuDR\thumbnails) because it does not exist
+Exiting due to channel error.
+\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileCjQVnb"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2591,8 +2594,8 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1:62581
-1703664017192	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "625 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileD1tvVR"
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofileCjQVnb\thumbnails) because it does not exist
+-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileD1tvVR"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2613,8 +2616,8 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1:54172
-1703664247199	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "541 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileWFZZ1U"
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofileD1tvVR\thumbnails) because it does not exist
+-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileWFZZ1U"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2635,8 +2638,9 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1:53986
-1703664543072	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "539 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilegEFNqV"
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofileWFZZ1U\thumbnails) because it does not exist
+Exiting due to channel error.
+\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilegEFNqV"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2657,8 +2661,8 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1:52888
-1703665818554	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "528 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofiletQgyOk"
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofilegEFNqV\thumbnails) because it does not exist
+-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofiletQgyOk"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2678,8 +2682,9 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703665919510	geckodriver	INFO	Listening on 127.0.0.1:51802
-1703665922599	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "518 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileQnZnW4"
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "518 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileQnZnW4"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2699,7 +2704,8 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703666239765	geckodriver	INFO	Listening on 127.0.0.1:63257
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1:63257
 1703666242827	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "632 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileR4L1if"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
@@ -2720,8 +2726,9 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703666310072	geckodriver	INFO	Listening on 127.0.0.1:65202
-1703666313157	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "652 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile1HOqtM"
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "652 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile1HOqtM"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2741,7 +2748,8 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-ngs: Ignoring preference override of remote settings server
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 1703666329840	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
@@ -2759,7 +2767,8 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703666427778	geckodriver	INFO	Listening on 127.0.0.1:55133
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1:55133
 1703666430848	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "551 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileZTMPAH"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
@@ -2780,8 +2789,10 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703666967042	geckodriver	INFO	Listening on 127.0.0.1:57941
-1703666970099	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "579 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile5ID1vT"
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+Exiting due to channel error.
+"C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "579 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile5ID1vT"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2801,8 +2812,9 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703667099289	geckodriver	INFO	Listening on 127.0.0.1:54723
-1703667102351	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "547 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileCWHZpM"
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "547 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileCWHZpM"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2822,8 +2834,9 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703667774663	geckodriver	INFO	Listening on 127.0.0.1:49876
-1703667777715	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "498 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileqdOGsb"
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "498 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileqdOGsb"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2843,8 +2856,9 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703667983592	geckodriver	INFO	Listening on 127.0.0.1:59102
-1703667986664	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "591 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilezR70OT"
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofileqdOGsb\thumbnails) because it does not exist
+-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilezR70OT"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2864,11 +2878,11 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703668059850	geckodriver	INFO	Listening on 127.0.0.1:62832
-1703668062914	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "628 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilewu2xNk"
-*** You are running in headless mode.
-console.warn: services.settings: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+JavaScript error: , line 0: NotFoundError: Could not move source file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofilezR70OT\bookmarkbackups\bookmarks-2023-12-27.jsonlz4) because it does not exist
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofilezR70OT\thumbnails) because it does not exist
+Exiting due to channel error.
+ices.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 1703668063183	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
 console.error: Policies.jsm: 
@@ -2885,15 +2899,10 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-ngs: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1703668081526	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-console.error: Policies.jsm: 
-  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
-1703668081575	Marionette	INFO	Listening on port 51694
-WebDriver BiDi listening on ws://127.0.0.1:62602
-Read port: 51694
+JavaScript error: , line 0: NotFoundError: Could not move source file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofilewu2xNk\bookmarkbackups\bookmarks-2023-12-27.jsonlz4) because it does not exist
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofilewu2xNk\thumbnails) because it does not exist
+rt: 51694
 1703668081702	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.error: ({})
@@ -2903,8 +2912,9 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703668192960	geckodriver	INFO	Listening on 127.0.0.1:63461
-1703668195999	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "634 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileYk3cYU"
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofilel2wVNG\thumbnails) because it does not exist
+-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileYk3cYU"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2924,8 +2934,10 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703668277455	geckodriver	INFO	Listening on 127.0.0.1:58708
-1703668280526	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "587 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilehU1BcR"
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofileYk3cYU\thumbnails) because it does not exist
+Exiting due to channel error.
+\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilehU1BcR"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -2945,4 +2957,66 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-1703668370364	geckodriver	INFO	Listening on 127.0.0.1:57184
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofilehU1BcR\thumbnails) because it does not exist
+-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilemRV9w4"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703668373728	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703668373787	Marionette	INFO	Listening on port 56964
+WebDriver BiDi listening on ws://127.0.0.1:57185
+Read port: 56964
+1703668373911	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:57185/devtools/browser/31f9fb83-cb5a-4ba0-91b0-4185977a1648
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofilemRV9w4\thumbnails) because it does not exist
+: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703668403714	Marionette	INFO	Listening on port 56162
+WebDriver BiDi listening on ws://127.0.0.1:53858
+Read port: 56162
+1703668403844	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:53858/devtools/browser/3e6c091a-d50e-4987-8cdf-7ea45922b186
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofilekjSppz\thumbnails) because it does not exist
+Exiting due to channel error.
+\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileWdOpxt"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703668505574	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703668505622	Marionette	INFO	Listening on port 55628
+WebDriver BiDi listening on ws://127.0.0.1:62172
+Read port: 55628
+1703668505753	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:62172/devtools/browser/2b4e2054-d975-4d61-89e4-154150ce472c
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/PromiseWorker.sys.mjs, line 102: Error: Could not get children of file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofileWdOpxt\thumbnails) because it does not exist
