@@ -5,22 +5,37 @@
   },
   "segments": [
     {
-      "segment_id": "a78d48fa-3ee3-4c68-8ae6-fc8805fa7266",
-      "max_doc": 15,
+      "segment_id": "109a5d09-50dc-48f2-bf05-c42ed7de672c",
+      "max_doc": 30,
       "deletes": null
     },
     {
-      "segment_id": "efb08d66-c112-4a12-b2c2-0832ec320282",
+      "segment_id": "af582842-e464-49a9-ae86-73763ff26687",
       "max_doc": 1,
       "deletes": null
     },
     {
-      "segment_id": "eb122a02-308d-4bf0-8eab-45423b01d45b",
+      "segment_id": "bb131f55-963c-4241-9a9e-8ddab4433915",
       "max_doc": 1,
       "deletes": null
     },
     {
-      "segment_id": "41b28922-3f3e-4c5f-84f1-0be17153353f",
+      "segment_id": "1c98c3cc-aae5-43d3-a24d-934627262735",
+      "max_doc": 1,
+      "deletes": null
+    },
+    {
+      "segment_id": "fe5a6609-7bf7-4aeb-a367-f04dcca36582",
+      "max_doc": 1,
+      "deletes": null
+    },
+    {
+      "segment_id": "f03ec189-1666-4f20-b2c2-e43acf0cf4e2",
+      "max_doc": 1,
+      "deletes": null
+    },
+    {
+      "segment_id": "30f0983e-0922-4d0f-a41a-ad04a2644686",
       "max_doc": 1,
       "deletes": null
     }
@@ -28,6 +43,19 @@
   "schema": [
     {
       "name": "invoice_id",
+      "type": "text",
+      "options": {
+        "indexing": {
+          "record": "position",
+          "fieldnorms": true,
+          "tokenizer": "default"
+        },
+        "stored": true,
+        "fast": false
+      }
+    },
+    {
+      "name": "sub_invoice_id",
       "type": "text",
       "options": {
         "indexing": {
@@ -157,5 +185,5 @@
       }
     }
   ],
-  "opstamp": 36
+  "opstamp": 72
 }

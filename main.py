@@ -41,6 +41,7 @@ async def create_invoice(invoice: Invoice):
         writer = index.writer()
         writer.add_document(tantivy.Document(
             invoice_id=[str(db_invoice.invoice_id)],
+            sub_invoice_id=[str(db_invoice.sub_invoice_id)],
             content=[str(db_invoice.content)],
             money=[str(db_invoice.money)],
             organization=[str(db_invoice.organization)],
@@ -70,11 +71,14 @@ async def invoice():
     return invoice
 
 @app.get('/get-invoice-detail')
-async def get_invoice_detail(invoice_id: str):
-    invoices = db.session.query(InvoiceModel).filter(InvoiceModel.invoice_id == invoice_id).all()
+async def get_invoice_detail(sub_invoice_id: str):
+    data_response = []
+    invoices = db.session.query(InvoiceModel).filter(InvoiceModel.sub_invoice_id == sub_invoice_id).all()
+
+    if not invoices:
+        return data_response
 
     result = defaultdict(dict)
-
     for invoice in invoices:
         invoice_id = invoice.invoice_id
         # Remove unnecessary fields for the summary
@@ -101,8 +105,10 @@ async def get_invoice_detail(invoice_id: str):
             "bill_date": invoice.bill_date,
             # Add other fields as needed
         })
+    
+    data_response = list(result.values())
 
-    return list(result.values())
+    return data_response[0]
 
 
 
@@ -110,15 +116,16 @@ async def get_invoice_detail(invoice_id: str):
 def fulltext_search_invoice(text: str):
     index.reload()
     searcher = index.searcher()
-    query = index.parse_query(text, ["invoice_id", "content", "money", "organization", "bill_code", "NDKT_code", "economic_code", "NSNN_code", "organization_received", "chapter_code"])
+    query = index.parse_query(text, ["invoice_id", "sub_invoice_id", "content", "money", "organization", "bill_code", "NDKT_code", "economic_code", "NSNN_code", "organization_received", "chapter_code"])
     search_results = searcher.search(query, 100)
     print(search_results)
     result = []
     for score, doc_address in search_results.hits:
         # Retrieve the document
         document = searcher.doc(doc_address)
-        content = document.get_first("content")
         invoice_id = document.get_first("invoice_id")
+        sub_invoice_id = document.get_first("sub_invoice_id")
+        content = document.get_first("content")
         money = document.get_first("money")
         organization = document.get_first("organization")
         bill_code = document.get_first("bill_code")
@@ -128,9 +135,10 @@ def fulltext_search_invoice(text: str):
         organization_received = document.get_first("organization_received")
         chapter_code = document.get_first("chapter_code")
 
-        template = {
-            'content': content,
+        template = { 
             'invoice_id': invoice_id,
+            'sub_invoice_id': sub_invoice_id,
+            'content': content,
             'money': money,
             'organization': organization,
             'bill_code': bill_code,
@@ -159,7 +167,7 @@ def search_invoices(
 
     # Add conditions based on provided parameters
     if invoice_id:
-        query = query.filter(InvoiceModel.invoice_id == invoice_id)
+        query = query.filter(func.unaccent(InvoiceModel.invoice_id).ilike(func.unaccent(f"%{invoice_id}%")))
 
     if organization:
         query = query.filter(func.unaccent(InvoiceModel.organization).ilike(func.unaccent(f"%{organization}%")))

@@ -34,8 +34,8 @@ class PythonOrgSearch(unittest.TestCase):
     def extract_text(self, element):
         return element.text
     
-    def convert_to_string(self, string): 
-        return "`" + string
+    def clean_string(self, string):
+        return string.replace('\n', ' ')
     
     def trim_text(self, element):
         element = element.lstrip()
@@ -140,7 +140,7 @@ class PythonOrgSearch(unittest.TestCase):
             data = {
                 "id": invoice_id + elements[i + 5].text + elements[i].text,
                 "code_invoice": code,
-                "invoice_id": invoice_id,
+                "invoice_id": self.clean_string(invoice_id),
                 "sub_invoice_id": sub_invoice_id, 
                 "organization": organization,
                 "organization_code": organization_code,
@@ -149,7 +149,7 @@ class PythonOrgSearch(unittest.TestCase):
                 "NDKT_code":elements[i+4].text,
                 "economic_code":elements[i+6].text,
                 "NSNN_code":elements[i+7].text,
-                "content":elements[i + 5].text + " " + elements[i].text,
+                "content": self.clean_string(elements[i + 5].text + " " + elements[i].text),
                 "money":money_value,
                 "organization_received": organization_received,
                 "bank_account": "",
@@ -201,7 +201,7 @@ class PythonOrgSearch(unittest.TestCase):
             data = {
                 "id": invoice_id + content_arr[i].text,
                 "code_invoice": code,
-                "invoice_id": invoice_id,
+                "invoice_id": self.clean_string(invoice_id),
                 "sub_invoice_id": sub_invoice_id, 
                 "organization": organization,
                 "organization_code": None,
@@ -211,7 +211,7 @@ class PythonOrgSearch(unittest.TestCase):
                 "chapter_code": chapter_code_arr[i].text if chapter_code_arr != [] else None,
                 "economic_code": economic_code_arr[i].text if economic_code_arr != [] else None,
                 "NSNN_code": NSNN_code_arr[i].text if NSNN_code_arr != [] else None,
-                "content":content_arr[i].text,
+                "content":self.clean_string(content_arr[i].text),
                 "money":money[i].text.replace(".", ""),
                 "organization_received": organization_received,
                 "bank_account": bank_account,

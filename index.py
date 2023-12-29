@@ -3,6 +3,7 @@ import tantivy
 # Declaring our schema.
 schema_builder = tantivy.SchemaBuilder()
 schema_builder.add_text_field("invoice_id", stored=True)
+schema_builder.add_text_field("sub_invoice_id", stored=True)
 schema_builder.add_text_field("content", stored=True)
 schema_builder.add_text_field("money", stored=True)
 schema_builder.add_text_field("organization", stored=True)
