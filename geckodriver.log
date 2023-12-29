@@ -3528,3 +3528,96 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1703831987040	geckodriver	INFO	Listening on 127.0.0.1:59132
+1703831990101	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "591 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilekYG6ZU"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703831990337	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703831990395	Marionette	INFO	Listening on port 56948
+WebDriver BiDi listening on ws://127.0.0.1:59133
+Read port: 56948
+1703831990519	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:59133/devtools/browser/f258934c-bf46-43b9-8438-7f543660acb8
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+ngs: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703832005117	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703832005175	Marionette	INFO	Listening on port 52551
+WebDriver BiDi listening on ws://127.0.0.1:54091
+Read port: 52551
+1703832005320	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:54091/devtools/browser/66754b72-fdeb-4094-9fa4-a64546dad8a5
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+ngs: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703832018859	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703832018905	Marionette	INFO	Listening on port 60527
+WebDriver BiDi listening on ws://127.0.0.1:53987
+Read port: 60527
+1703832019028	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:53987/devtools/browser/08f5fff6-31fb-43d2-899b-90b291034081
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+ngs: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703832044893	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703832045021	Marionette	INFO	Listening on port 65111
+WebDriver BiDi listening on ws://127.0.0.1:59675
+Read port: 65111
+1703832045377	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:59675/devtools/browser/1b9803e8-255a-4858-b9a3-b4397fb0f09c
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+ngs: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703832064940	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703832065005	Marionette	INFO	Listening on port 62788
+WebDriver BiDi listening on ws://127.0.0.1:52626
+Read port: 62788
+1703832065184	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:52626/devtools/browser/ceb11ab6-0c90-45c8-aaef-a5cb4f9a6bc5
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch

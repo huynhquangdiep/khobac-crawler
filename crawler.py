@@ -21,15 +21,6 @@ class PythonOrgSearch(unittest.TestCase):
         self.driver = webdriver.Firefox(options=firefox_options)
         # self.driver.maximize_window()
 
-        # Define folder paths
-        result_folder_path = os.path.join("results", constants.YEAR_MONTH_FOLDER)
-        errors_folder_path = os.path.join(constants.YEAR_MONTH_FOLDER, "errors")  
-
-        # Create directories if they do not exist
-        for folder_path in [result_folder_path, errors_folder_path]:
-            if not os.path.exists(folder_path):
-                os.makedirs(folder_path)
-
 ###################### common ###############################
     def extract_text(self, element):
         return element.text
@@ -116,7 +107,6 @@ class PythonOrgSearch(unittest.TestCase):
 
         return [get_signature_date_1, get_signature_date_2]
             
-    
 ##################### End common ################################
 
 ######################### 07 #################################
