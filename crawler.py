@@ -106,52 +106,76 @@ class PythonOrgSearch(unittest.TestCase):
             i = i +2
 
         return [get_signature_date_1, get_signature_date_2]
+    
+    def get_temp_docs(self, string):
+        # Define the pattern for matching the desired substring
+        pattern = r"(\d{6}_\d{7}_\d{7})"
+
+        # Use re.search to find the pattern in the string
+        match = re.search(pattern, string)
+
+        # If there's a match, print the extracted substring
+        if match:
+            return match.group(1)
+        
+        return False
             
 ##################### End common ################################
 
 ######################### 07 #################################
     def process_model_07(self, code):
-        invoice_id = self.get_content_by_key_search("Số:")
-        parts = invoice_id.split()
-        sub_invoice_id = parts[-1]
-        organization = self.get_content_by_key_search("Đơn vị sử dụng Ngân sách:")
-        organization_code = self.get_content_by_key_search("Mã đơn vị:")
-        organization_received = self.get_content_by_key_search("Đơn vị nhận tiền:")
-        get_signature_dates = self.get_signature_dates()
-        elements = self.driver.find_elements("css selector", ".jrtableframe div")
+        try:
+            invoice_id = self.get_content_by_key_search("Số:")
+            parts = invoice_id.split()
+            sub_invoice_id = parts[-1]
+            organization = self.get_content_by_key_search("Đơn vị sử dụng Ngân sách:")
+            organization_code = self.get_content_by_key_search("Mã đơn vị:")
+            organization_received = self.get_content_by_key_search("Đơn vị nhận tiền:")
+            get_signature_dates = self.get_signature_dates()
+            elements = self.driver.find_elements("css selector", ".jrtableframe div")
+            temp_payment_07 = self.get_temp_docs(self.get_content_by_key_search("(Kèm theo Giấy rút dự toán, Ủy nhiệm chi, Giấy đề nghị thanh toán tạm ứng số:"))
+        
+            i = 16
+            data_response = []
+            while i < len(elements) and i + 12 < len(elements):
+                subdiv = elements[i + 8].find_elements(By.XPATH, './/div')
+                money_text = subdiv[0].text.replace(".", "")
+                money_value = int(money_text) if money_text.isdigit() else None  # Convert money to an integer if it's a digit
+                
+                content = self.clean_string(elements[i + 5].text + " " + elements[i].text)
+                NDKT_code = elements[i+4].text if elements != [] else ""
+                economic_code = elements[i+6].text if elements != [] else ""
+                NSNN_code = elements[i+7].text if elements != [] else ""
+                
+                data = {
+                    "id": invoice_id + content + NDKT_code + economic_code + NSNN_code,
+                    "code_invoice": code,
+                    "invoice_id": self.clean_string(invoice_id),
+                    "sub_invoice_id": sub_invoice_id, 
+                    "temp_payment_07": temp_payment_07,
+                    "organization": organization,
+                    "organization_code": organization_code,
+                    "bill_code":elements[i].text,
+                    "bill_date":elements[i + 1].text,
+                    "NDKT_code":NDKT_code,
+                    "economic_code":economic_code,
+                    "NSNN_code":NSNN_code,
+                    "content": content,
+                    "money":money_value,
+                    "organization_received": organization_received,
+                    "bank_account": "",
+                    "location": "",
+                    "signature_date_1": get_signature_dates[0], 
+                    "signature_date_2": get_signature_dates[1]
+                }
+                i += 12
+                data_response = json.dumps(data, ensure_ascii=True)
+                self.store_data(data_response)
 
-        i = 16
-        data_response = []
-        while i < len(elements) and i + 12 < len(elements):
-            subdiv = elements[i + 8].find_elements(By.XPATH, './/div')
-            money_text = subdiv[0].text.replace(".", "")
-            money_value = int(money_text) if money_text.isdigit() else None  # Convert money to an integer if it's a digit
-            
-            data = {
-                "id": invoice_id + elements[i + 5].text + elements[i].text,
-                "code_invoice": code,
-                "invoice_id": self.clean_string(invoice_id),
-                "sub_invoice_id": sub_invoice_id, 
-                "organization": organization,
-                "organization_code": organization_code,
-                "bill_code":elements[i].text,
-                "bill_date":elements[i + 1].text,
-                "NDKT_code":elements[i+4].text,
-                "economic_code":elements[i+6].text,
-                "NSNN_code":elements[i+7].text,
-                "content": self.clean_string(elements[i + 5].text + " " + elements[i].text),
-                "money":money_value,
-                "organization_received": organization_received,
-                "bank_account": "",
-                "location": "",
-                "signature_date_1": get_signature_dates[0], 
-                "signature_date_2": get_signature_dates[1]
-            }
-            i += 12
-            data_response = json.dumps(data, ensure_ascii=True)
-            self.store_data(data_response)
-
-        return True
+            return True
+        
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
     def process_model(self, code, content_selector, money_selector, organization_search_key, location_search_key):
         invoice_id = self.get_content_by_key_search("Số:")
@@ -188,8 +212,15 @@ class PythonOrgSearch(unittest.TestCase):
  
         i = 1
         while i < len(content_arr):
+
+            content = self.clean_string(content_arr[i].text)
+            NDKT_code = NDKT_code_arr[i].text if NDKT_code_arr != [] else ""
+            chapter_code = chapter_code_arr[i].text if chapter_code_arr != [] else ""
+            economic_code = economic_code_arr[i].text if economic_code_arr != [] else ""
+            NSNN_code = NSNN_code_arr[i].text if NSNN_code_arr != [] else ""
+
             data = {
-                "id": invoice_id + content_arr[i].text,
+                "id": invoice_id + content + NDKT_code + economic_code + NSNN_code,
                 "code_invoice": code,
                 "invoice_id": self.clean_string(invoice_id),
                 "sub_invoice_id": sub_invoice_id, 
@@ -197,11 +228,11 @@ class PythonOrgSearch(unittest.TestCase):
                 "organization_code": None,
                 "bill_code":None,
                 "bill_date":None,
-                "NDKT_code": NDKT_code_arr[i].text if NDKT_code_arr != [] else None, 
-                "chapter_code": chapter_code_arr[i].text if chapter_code_arr != [] else None,
-                "economic_code": economic_code_arr[i].text if economic_code_arr != [] else None,
-                "NSNN_code": NSNN_code_arr[i].text if NSNN_code_arr != [] else None,
-                "content":self.clean_string(content_arr[i].text),
+                "NDKT_code": NDKT_code,
+                "chapter_code": chapter_code,
+                "economic_code": economic_code,
+                "NSNN_code": NSNN_code,
+                "content":content,
                 "money":money[i].text.replace(".", ""),
                 "organization_received": organization_received,
                 "bank_account": bank_account,
@@ -379,10 +410,10 @@ class PythonOrgSearch(unittest.TestCase):
 
     def internal_testing(self): 
         self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/07.html")
-        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a1.html")
-        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a2.html")
-        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c.html")
-        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c1.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a1.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a2.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c1.html")
 
         # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/07.html")
         # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16a1.html")

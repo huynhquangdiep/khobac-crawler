@@ -3452,8 +3452,8 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
- server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Exiting due to channel error.
+.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 1703822957923	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
 console.error: Policies.jsm: 
@@ -3509,8 +3509,8 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
- server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Exiting due to channel error.
+.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 1703823008293	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
 console.error: Policies.jsm: 
@@ -3528,8 +3528,9 @@ console.error: services.settings:
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1703831987040	geckodriver	INFO	Listening on 127.0.0.1:59132
-1703831990101	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "591 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilekYG6ZU"
+Exiting due to channel error.
+Exiting due to channel error.
+03831990101	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "591 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilekYG6ZU"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
@@ -3549,7 +3550,8 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-ngs: Ignoring preference override of remote settings server
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 1703832005117	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
@@ -3567,8 +3569,10 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-ngs: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+Exiting due to channel error.
+_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 1703832018859	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
 console.error: Policies.jsm: 
@@ -3585,7 +3589,8 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-ngs: Ignoring preference override of remote settings server
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 1703832044893	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
@@ -3603,8 +3608,11 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
-ngs: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+the environment
 1703832064940	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
 console.error: Policies.jsm: 
@@ -3621,3 +3629,653 @@ console.error: services.settings:
 console.error: services.settings: 
   main/search-config-v2 local data was corrupted
 console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "541 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile0eu433"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703832647038	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703832647085	Marionette	INFO	Listening on port 59874
+WebDriver BiDi listening on ws://127.0.0.1:54175
+Read port: 59874
+1703832647212	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:54175/devtools/browser/37d4210e-be94-4a0f-b91d-b406b8e1c752
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+Exiting due to channel error.
+"C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "560 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofiletV4Pnk"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703832774770	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703832774818	Marionette	INFO	Listening on port 49975
+WebDriver BiDi listening on ws://127.0.0.1:56082
+Read port: 49975
+1703832774939	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:56082/devtools/browser/cbfcc6de-b388-47eb-a0bd-aa3f327a677d
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "628 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileIZaavv"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703832823868	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703832823915	Marionette	INFO	Listening on port 49983
+WebDriver BiDi listening on ws://127.0.0.1:62838
+Read port: 49983
+1703832824044	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:62838/devtools/browser/7837a71d-d363-4403-92b2-1125f8618f72
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "549 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileI4MXao"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703832900976	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703832901024	Marionette	INFO	Listening on port 63377
+WebDriver BiDi listening on ws://127.0.0.1:54974
+Read port: 63377
+1703832901151	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:54974/devtools/browser/46c84dc4-43d8-416d-8a30-16209ce6fd9b
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+1703836780208	geckodriver	INFO	Listening on 127.0.0.1:57991
+1703836783268	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "579 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileBaIL3o"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703836783523	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703836783571	Marionette	INFO	Listening on port 61004
+WebDriver BiDi listening on ws://127.0.0.1:57992
+Read port: 61004
+1703836783697	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:57992/devtools/browser/22530468-5a53-426a-b36e-37c420401e0d
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ing-port" "603 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileTD1el1"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703836838728	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703836838777	Marionette	INFO	Listening on port 53797
+WebDriver BiDi listening on ws://127.0.0.1:60327
+Read port: 53797
+1703836838906	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:60327/devtools/browser/151b4d19-8fa0-43ea-9ab3-b0a0ca6c8207
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+TTINGS_DEVTOOLS=1 in the environment
+1703836865744	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1703836865807	Marionette	INFO	Listening on port 56648
+WebDriver BiDi listening on ws://127.0.0.1:56432
+Read port: 56648
+1703836865942	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:56432/devtools/browser/42e90ecb-9338-4437-b334-3a631a0c33bd
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+console.error: (new Error("Polling for changes failed: NetworkError: Network request failed.", "resource://services-settings/remote-settings.sys.mjs", 321))
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+313	Marionette	INFO	Listening on port 64427
+WebDriver BiDi listening on ws://127.0.0.1:53762
+Read port: 64427
+1703836880439	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:53762/devtools/browser/ff8f7fb8-5ea5-4ade-a852-2aeddde08beb
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+console.error: (new Error("Polling for changes failed: NetworkError: Network request failed.", "resource://services-settings/remote-settings.sys.mjs", 321))
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+515	Marionette	INFO	Listening on port 62953
+WebDriver BiDi listening on ws://127.0.0.1:56965
+Read port: 62953
+1703836895713	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:56965/devtools/browser/9bcae41a-d11e-46c9-94b8-ddf43f64e59b
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+console.error: (new Error("Polling for changes failed: NetworkError: Network request failed.", "resource://services-settings/remote-settings.sys.mjs", 321))
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+436	Marionette	INFO	Listening on port 57775
+WebDriver BiDi listening on ws://127.0.0.1:51766
+Read port: 57775
+1703836909573	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:51766/devtools/browser/0a66451d-65c9-46af-9ded-d5f423c1da96
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+console.error: (new Error("Polling for changes failed: NetworkError: Network request failed.", "resource://services-settings/remote-settings.sys.mjs", 321))
+JavaScript error: , line 0: NotFoundError: Could not move source file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofile2zDOkU\bookmarkbackups\bookmarks-2024-01-02.jsonlz4) because it does not exist
+JavaScript error: , line 0: NotFoundError: Could not move source file(C:\Users\DIEP~1.HUY\AppData\Local\Temp\rust_mozprofile2zDOkU\bookmarkbackups\bookmarks-2024-01-02.jsonlz4) because it does not exist
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ervices.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+console.error: (new Error("Polling for changes failed: NetworkError: Network request failed.", "resource://services-settings/remote-settings.sys.mjs", 321))
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "620 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile3CubAL"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704179919675	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704179919723	Marionette	INFO	Listening on port 64951
+WebDriver BiDi listening on ws://127.0.0.1:62042
+Read port: 64951
+1704179919838	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:62042/devtools/browser/f89117c1-f26b-43db-b7ad-67ed14830a7e
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "548 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileodLceT"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704180067858	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704180067904	Marionette	INFO	Listening on port 64965
+WebDriver BiDi listening on ws://127.0.0.1:54858
+Read port: 64965
+1704180068024	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:54858/devtools/browser/27a2b7e9-3e99-40da-9675-2db599805bcc
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "596 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileA8nYWl"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704180161077	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704180161124	Marionette	INFO	Listening on port 55273
+WebDriver BiDi listening on ws://127.0.0.1:59627
+Read port: 55273
+1704180161246	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:59627/devtools/browser/09dce739-8175-4882-a568-2687cef8464f
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "590 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile4vveHr"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704180204969	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704180205021	Marionette	INFO	Listening on port 59052
+WebDriver BiDi listening on ws://127.0.0.1:59001
+Read port: 59052
+1704180205139	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:59001/devtools/browser/6dce009d-8294-4a9a-9a4e-c34b92db855e
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+etting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704180227309	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704180227357	Marionette	INFO	Listening on port 60127
+WebDriver BiDi listening on ws://127.0.0.1:50993
+Read port: 60127
+1704180227483	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:50993/devtools/browser/b66ea877-95ea-48e8-b2a7-d726179102ae
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "574 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofiledaZqkf"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704180391168	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704180391217	Marionette	INFO	Listening on port 51722
+WebDriver BiDi listening on ws://127.0.0.1:57432
+Read port: 51722
+1704180391357	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:57432/devtools/browser/b6634cd4-54ce-4d74-9e21-4af6fc735825
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "617 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileN2FF4B"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704181437117	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704181437171	Marionette	INFO	Listening on port 57007
+WebDriver BiDi listening on ws://127.0.0.1:61796
+Read port: 57007
+1704181437321	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:61796/devtools/browser/a1144b4f-bdd4-440e-9c4c-8c51cc81629f
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "524 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilekyq5Cf"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704181499652	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704181499700	Marionette	INFO	Listening on port 55872
+WebDriver BiDi listening on ws://127.0.0.1:52412
+Read port: 55872
+1704181499824	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:52412/devtools/browser/6aa0061f-bfb7-4f58-8640-58cea0c35404
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+etting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704181519719	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704181519775	Marionette	INFO	Listening on port 60060
+WebDriver BiDi listening on ws://127.0.0.1:49883
+Read port: 60060
+1704181519904	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:49883/devtools/browser/12f01078-55be-4131-b1de-31684aa980c6
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "575 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile2aYhEO"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704181557430	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704181557482	Marionette	INFO	Listening on port 61954
+WebDriver BiDi listening on ws://127.0.0.1:57586
+Read port: 61954
+1704181557607	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:57586/devtools/browser/a0a2d7bb-56db-41eb-af00-bdecaa41261b
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+etting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704181574616	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704181574689	Marionette	INFO	Listening on port 61980
+WebDriver BiDi listening on ws://127.0.0.1:52897
+Read port: 61980
+1704181574830	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:52897/devtools/browser/88dddabf-0061-4c26-9136-b58f5102a68f
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "638 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileAta1RN"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704181641566	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704181641636	Marionette	INFO	Listening on port 65465
+WebDriver BiDi listening on ws://127.0.0.1:63806
+Read port: 65465
+1704181641771	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:63806/devtools/browser/c75d6fea-3f67-42a9-919a-a050030709fc
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "614 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile64bLTN"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704181906872	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704181906920	Marionette	INFO	Listening on port 60670
+WebDriver BiDi listening on ws://127.0.0.1:61422
+Read port: 60670
+1704181907048	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:61422/devtools/browser/50459a90-b10f-439a-ba83-5522f96f65fb
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+etting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704181918816	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704181918881	Marionette	INFO	Listening on port 59433
+WebDriver BiDi listening on ws://127.0.0.1:57288
+Read port: 59433
+1704181919083	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:57288/devtools/browser/bc9b4c83-d225-44b7-ba99-74c800c6db99
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "596 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilek3BRQh"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704182058591	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704182058644	Marionette	INFO	Listening on port 53510
+WebDriver BiDi listening on ws://127.0.0.1:59690
+Read port: 53510
+1704182058759	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:59690/devtools/browser/c70528cc-58b4-4dd3-a8f5-b9cb216bbe53
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "507 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofile1klX41"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704182119798	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704182119846	Marionette	INFO	Listening on port 57419
+WebDriver BiDi listening on ws://127.0.0.1:50796
+Read port: 57419
+1704182119979	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:50796/devtools/browser/50b00301-52c5-4a27-bcdd-318bd6f98a0d
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "508 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofileEBDjS2"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704182185865	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704182185915	Marionette	INFO	Listening on port 64318
+WebDriver BiDi listening on ws://127.0.0.1:50891
+Read port: 64318
+1704182186030	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:50891/devtools/browser/5d9a45a5-46b6-482b-baa9-8fe98ddc58f4
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "549 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilezhyIVs"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704182234714	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704182234763	Marionette	INFO	Listening on port 62372
+WebDriver BiDi listening on ws://127.0.0.1:54983
+Read port: 62372
+1704182234886	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:54983/devtools/browser/8b0348bd-27bf-42fd-b540-7a4e8a5cbede
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+etting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704182261447	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704182261501	Marionette	INFO	Listening on port 51827
+Read port: 51827
+WebDriver BiDi listening on ws://127.0.0.1:65053
+1704182261549	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:65053/devtools/browser/21c36809-0deb-45ca-a09a-967515d5bed0
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+ command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "594 ... -remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\DIEP~1.HUY\\AppData\\Local\\Temp\\rust_mozprofilewjKJxL"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1704182316194	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+console.error: Policies.jsm: 
+  OfferToSaveLoginsDefault ignored because OfferToSaveLogins is present.
+1704182316244	Marionette	INFO	Listening on port 60918
+WebDriver BiDi listening on ws://127.0.0.1:59413
+Read port: 60918
+1704182316372	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:59413/devtools/browser/7c1116a7-56f4-43ca-b247-830c9c5ddca6
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-02-08-20-06-04.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScri

@@ -160,6 +160,8 @@ def search_invoices(
     content: str = None,
     money: str = None,
     organization_received:  str = None,
+    NDKT_code_start: str = None,
+    NDKT_code_stop: str = None,
     signature_date_1_start: str = None,
     signature_date_1_end: str = None,
 ):
@@ -180,6 +182,14 @@ def search_invoices(
 
     if organization_received:
         query = query.filter(func.unaccent(InvoiceModel.organization_received).ilike(func.unaccent(f"%{organization_received}%")))
+
+    if NDKT_code_start and NDKT_code_stop:
+        query = query.filter(
+            and_(
+                InvoiceModel.NDKT_code >= NDKT_code_start,
+                InvoiceModel.NDKT_code <= NDKT_code_stop
+            )
+        )
 
     if signature_date_1_start and signature_date_1_end:
         query = query.filter(

@@ -8,6 +8,7 @@ class Invoice(BaseModel):
     invoice_id: Optional[str] = None
     code_invoice: Optional[str] = None 
     sub_invoice_id: Optional[str] = None
+    temp_payment_07: Optional[str] = None
     organization: Optional[str] = None
     organization_code: Optional[str] = None
     bill_code: Optional[str] = None

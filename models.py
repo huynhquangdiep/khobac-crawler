@@ -10,6 +10,7 @@ class InvoiceModel(Base):
     invoice_id = Column(String)
     code_invoice = Column(String)
     sub_invoice_id = Column(String)
+    temp_payment_07 = Column(String)
     organization = Column(String)
     organization_code = Column(String)
     bill_code = Column(String)  # Fixed the colon to equal sign here
