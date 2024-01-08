@@ -1,3 +1,4 @@
+# from collections import defaultdict
 from collections import defaultdict
 from operator import and_
 from pydantic import ValidationError
@@ -38,22 +39,22 @@ async def root():
 async def create_invoice(invoice: Invoice):
     try:
         db_invoice = InvoiceModel(**invoice.dict())
-        writer = index.writer()
-        writer.add_document(tantivy.Document(
-            invoice_id=[str(db_invoice.invoice_id)],
-            sub_invoice_id=[str(db_invoice.sub_invoice_id)],
-            content=[str(db_invoice.content)],
-            money=[str(db_invoice.money)],
-            organization=[str(db_invoice.organization)],
-            bill_code=[str(db_invoice.bill_code)],
-            NDKT_code=[str(db_invoice.NDKT_code)],
-            economic_code=[str(db_invoice.economic_code)],
-            NSNN_code=[str(db_invoice.NSNN_code)],
-            organization_received=[str(db_invoice.organization_received)],
-            chapter_code=[str(db_invoice.chapter_code)],
-        ))
-        writer.commit()
-        index.reload()
+        # writer = index.writer()
+        # writer.add_document(tantivy.Document(
+        #     invoice_id=[str(db_invoice.invoice_id)],
+        #     sub_invoice_id=[str(db_invoice.sub_invoice_id)],
+        #     content=[str(db_invoice.content)],
+        #     money=[str(db_invoice.money)],
+        #     organization=[str(db_invoice.organization)],
+        #     bill_code=[str(db_invoice.bill_code)],
+        #     NDKT_code=[str(db_invoice.NDKT_code)],
+        #     economic_code=[str(db_invoice.economic_code)],
+        #     NSNN_code=[str(db_invoice.NSNN_code)],
+        #     organization_received=[str(db_invoice.organization_received)],
+        #     chapter_code=[str(db_invoice.chapter_code)],
+        # ))
+        # writer.commit()
+        # index.reload()
 
         db.session.add(db_invoice)
         db.session.commit()
@@ -61,9 +62,10 @@ async def create_invoice(invoice: Invoice):
             
         return db_invoice
     except Exception as e:
-        # Log the error or handle it as needed
-        print(f"Error creating invoice: {e}")
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+        # # Log the error or handle it as needed
+        # print(f"Error creating invoice: {e}")
+        # raise HTTPException(status_code=500, detail="Internal Server Error")
+        return False
 
 @app.get('/invoices')
 async def invoice():
@@ -112,45 +114,45 @@ async def get_invoice_detail(sub_invoice_id: str):
 
 
 
-@app.get("/fulltext-search-invoice")
-def fulltext_search_invoice(text: str):
-    index.reload()
-    searcher = index.searcher()
-    query = index.parse_query(text, ["invoice_id", "sub_invoice_id", "content", "money", "organization", "bill_code", "NDKT_code", "economic_code", "NSNN_code", "organization_received", "chapter_code"])
-    search_results = searcher.search(query, 100)
-    print(search_results)
-    result = []
-    for score, doc_address in search_results.hits:
-        # Retrieve the document
-        document = searcher.doc(doc_address)
-        invoice_id = document.get_first("invoice_id")
-        sub_invoice_id = document.get_first("sub_invoice_id")
-        content = document.get_first("content")
-        money = document.get_first("money")
-        organization = document.get_first("organization")
-        bill_code = document.get_first("bill_code")
-        NDKT_code = document.get_first("NDKT_code")
-        economic_code = document.get_first("economic_code")
-        NSNN_code = document.get_first("NSNN_code")
-        organization_received = document.get_first("organization_received")
-        chapter_code = document.get_first("chapter_code")
+# @app.get("/fulltext-search-invoice")
+# def fulltext_search_invoice(text: str):
+#     index.reload()
+#     searcher = index.searcher()
+#     query = index.parse_query(text, ["invoice_id", "sub_invoice_id", "content", "money", "organization", "bill_code", "NDKT_code", "economic_code", "NSNN_code", "organization_received", "chapter_code"])
+#     search_results = searcher.search(query, 100)
+#     print(search_results)
+#     result = []
+#     for score, doc_address in search_results.hits:
+#         # Retrieve the document
+#         document = searcher.doc(doc_address)
+#         invoice_id = document.get_first("invoice_id")
+#         sub_invoice_id = document.get_first("sub_invoice_id")
+#         content = document.get_first("content")
+#         money = document.get_first("money")
+#         organization = document.get_first("organization")
+#         bill_code = document.get_first("bill_code")
+#         NDKT_code = document.get_first("NDKT_code")
+#         economic_code = document.get_first("economic_code")
+#         NSNN_code = document.get_first("NSNN_code")
+#         organization_received = document.get_first("organization_received")
+#         chapter_code = document.get_first("chapter_code")
 
-        template = { 
-            'invoice_id': invoice_id,
-            'sub_invoice_id': sub_invoice_id,
-            'content': content,
-            'money': money,
-            'organization': organization,
-            'bill_code': bill_code,
-            'NDKT_code': NDKT_code,
-            'economic_code': economic_code,
-            'NSNN_code': NSNN_code,
-            'organization_received': organization_received,
-            'chapter_code': chapter_code
-        }
+#         template = { 
+#             'invoice_id': invoice_id,
+#             'sub_invoice_id': sub_invoice_id,
+#             'content': content,
+#             'money': money,
+#             'organization': organization,
+#             'bill_code': bill_code,
+#             'NDKT_code': NDKT_code,
+#             'economic_code': economic_code,
+#             'NSNN_code': NSNN_code,
+#             'organization_received': organization_received,
+#             'chapter_code': chapter_code
+#         }
 
-        result.append(template)
-    return result
+#         result.append(template)
+#     return result
 
 
 @app.get("/search-invoices")

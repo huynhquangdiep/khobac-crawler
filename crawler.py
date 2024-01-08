@@ -17,9 +17,9 @@ class PythonOrgSearch(unittest.TestCase):
 
     def setUp(self):
         firefox_options = Options()
-        firefox_options.add_argument("--headless")
+        # firefox_options.add_argument("--headless")
         self.driver = webdriver.Firefox(options=firefox_options)
-        # self.driver.maximize_window()
+        self.driver.maximize_window()
 
 ###################### common ###############################
     def extract_text(self, element):
@@ -263,8 +263,6 @@ class PythonOrgSearch(unittest.TestCase):
             print("*" * 20)
             print("Request was successful!")
             print("*" * 20)
-            print(response)  # If the API returns JSON, you can print the response content
-            print("*" * 20)
         else:
             print(f"Request failed with status code: {response.status_code}")
             print(response.text)  # Print the response content for debugging
@@ -272,7 +270,7 @@ class PythonOrgSearch(unittest.TestCase):
 ######################### Main #################################
     def login(self):
         self.driver.get(constants.LOGIN_URL)
-        # time.sleep(5)
+        time.sleep(5)
         self.wait_for_element(By.XPATH, '//input[@id="r1:0:pt1:sf1:it1::content"]')
         self.enter_text(By.XPATH, '//input[@id="r1:0:pt1:sf1:it1::content"]', constants.USER_NAME)
         self.enter_text(By.XPATH, '//input[@id="r1:0:pt1:sf1:it2::content"]', constants.PASSWORD)
@@ -283,7 +281,20 @@ class PythonOrgSearch(unittest.TestCase):
         self.enter_text(By.XPATH, '//input[@id="pt1:r1:0:it12::content"]', constants.YEAR)
         self.enter_text(By.XPATH, '//input[@id="pt1:r1:0:it10::content"]', constants.YEAR_MONTH)
 
-        time.sleep(60) #TODO = 100 seconds
+        # Da thanh toan 
+        self.click_element(By.XPATH, '//input[@id="pt1:r1:0:smc2::content"]') # Trạng thái:	
+        self.click_element(By.XPATH, '//input[@id="pt1:r1:0:smc2::saId"]')   # Tat ca
+        self.click_element(By.XPATH, '//input[@_adftrueval="Đã thanh toán"]') # Đã thanh toán 
+        self.click_element(By.XPATH, '//input[@id="pt1:r1:0:smc2::content"]') # Thoat 
+        self.click_element(By.XPATH, '//input[@id="pt1:r1:0:smc1::content"]') # Ds chứng từ
+        self.click_element(By.XPATH, '//input[@id="pt1:r1:0:smc1::saId"]') # Tat ca
+        self.click_element(By.XPATH, '//input[@_adftrueval="C2-02a/NS - Giấy rút dự toán Ngân sách Nhà nước"]')
+        self.click_element(By.XPATH, '//input[@_adftrueval="C2-02b/NS - Giấy rút dự toán Ngân sách Nhà nước(Nộp thuế)"]')
+        self.click_element(By.XPATH, '//input[@_adftrueval="C4-02a/KB - Ủy nhiệm chi"]')
+        self.click_element(By.XPATH, '//input[@_adftrueval="C4-02c/KB - Ủy nhiệm chi"]')
+        self.click_element(By.XPATH, '//input[@_adftrueval="M01 - Bảng kê chứng từ thanh toán/tạm ứng"]')
+
+        time.sleep(5) #TODO = 100 seconds
     
         self.click_element(By.XPATH, '//button[@id="pt1:r1:0:cb4"]')
         # time.sleep(10) #TODO = 100 seconds 
@@ -298,7 +309,7 @@ class PythonOrgSearch(unittest.TestCase):
     def click_element(self, by, locator):
         element = self.driver.find_element(by, locator)
         element.click()
-        time.sleep(10)
+        time.sleep(3)
 
 
     def get_list_href(self):
@@ -341,9 +352,9 @@ class PythonOrgSearch(unittest.TestCase):
                 )
 
                 items[i].click()
-                time.sleep(5)
+                time.sleep(2)
                 self.handle_iframe(i, j)
-                time.sleep(5)
+                time.sleep(2)
                 i += 1  # Increment i for the next iteration
 
                 if (i)  == len(items):
@@ -368,7 +379,7 @@ class PythonOrgSearch(unittest.TestCase):
 
     def handle_iframe(self, i, j):
         try: 
-            # self.driver.switch_to.frame(1)
+            self.driver.switch_to.frame(1)
             code_value = self.get_content_by_key_search("Mẫu số")
         except Exception as e:
             print(f"Loop: {e}")
@@ -376,7 +387,7 @@ class PythonOrgSearch(unittest.TestCase):
 
         if code_value in [constants.MAU_SO_04a, constants.MAU_SO_04b, constants.MAU_SO_05]:
             print("04 or 05")
-            time.sleep(5)
+            time.sleep(2)
             self.handle_close_modal()
             return self.driver.switch_to.parent_frame()
         
@@ -406,47 +417,11 @@ class PythonOrgSearch(unittest.TestCase):
         self.handle_close_modal()
         return self.driver.switch_to.parent_frame()
 
-
-
-    def internal_testing(self): 
-        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/07.html")
-        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a1.html")
-        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a2.html")
-        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c.html")
-        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c1.html")
-
-        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/07.html")
-        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16a1.html")
-        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16a2.html")
-        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16c.html")
-        # self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16c1.html")
-        
-    
-        code_value = self.get_content_by_key_search("Mẫu số")
-        
-        if code_value == constants.MAU_SO_16a1:
-            self.process_model(code_value, '.jrcel[class*="cel_0_"]', '.jrcel[class*="cel_soTien_"]', "Đơn vị rút dự toán:", "Tại KBNN (NH):")
-        
-        elif code_value == constants.MAU_SO_16a2:
-            self.process_model(code_value, '.jrcel[class*="cel_0_"]', '.jrcel[class*="cel_5_"]', "Đơn vị rút dự toán:", "Tại KBNN (NH):")
-
-        elif code_value == constants.MAU_SO_16c:
-            self.process_model(code_value, '.jrcel[class*="cel_0_"]', '.jrcel[class*="cel_3_"]', "Đơn vị trả tiền:", "Tại Kho bạc Nhà nước (NH):")
-        
-        elif code_value == constants.MAU_SO_16c1:
-            self.process_model(code_value, '.jrcel[class*="cel_0_"]', '.jrcel[class*="cel_3_"]', "Đơn vị trả tiền:", "Tại Kho bạc Nhà nước (NH):")
-
-        elif code_value == constants.MAU_SO_07:
-            self.process_model_07(code_value)
-
-        print('ok')
-
     def test_process_page(self):
-        self.internal_testing()
         
-        # self.login()
-        # hrefs = self.get_list_href()
-        # self.handle_click_event(hrefs)
+        self.login()
+        hrefs = self.get_list_href()
+        self.handle_click_event(hrefs)
 
 ######################### End #################################
 

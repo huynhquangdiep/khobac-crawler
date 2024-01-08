@@ -4,7 +4,6 @@ from typing import Optional
 from typing import Union
 
 class Invoice(BaseModel):
-    id:Optional[str] = None
     invoice_id: Optional[str] = None
     code_invoice: Optional[str] = None 
     sub_invoice_id: Optional[str] = None
@@ -24,6 +23,7 @@ class Invoice(BaseModel):
     location: Optional[str] = None
     signature_date_1: Optional[str] = None
     signature_date_2: Optional[str] = None
+    id:Optional[str] = None
 
     class Config:
         from_attributes  = True

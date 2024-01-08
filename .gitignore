@@ -2,3 +2,4 @@ results/*.xlsx
 docstore/*
 alembic/*
 __pycache__/*
+geckodriver.log
