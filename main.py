@@ -84,7 +84,7 @@ async def get_invoice_detail(sub_invoice_id: str):
     for invoice in invoices:
         invoice_id = invoice.invoice_id
         # Remove unnecessary fields for the summary
-        summary_fields = ["bank_account", "location", "signature_date_1", "signature_date_2",
+        summary_fields = ["temp_payment_07", "bank_account", "location", "signature_date_1", "signature_date_2",
                         "invoice_id", "time_created", "organization", "time_updated",
                         "code_invoice", "organization_code", "sub_invoice_id", "organization_received"]
         summary_data = {field: getattr(invoice, field, None) for field in summary_fields}
