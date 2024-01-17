@@ -23,6 +23,9 @@ class Invoice(BaseModel):
     location: Optional[str] = None
     signature_date_1: Optional[str] = None
     signature_date_2: Optional[str] = None
+    chief_accountant: Optional[str] = None
+    chief: Optional[str] = None
+
     id:Optional[str] = None
 
     class Config:

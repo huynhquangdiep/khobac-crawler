@@ -25,6 +25,8 @@ class InvoiceModel(Base):
     location = Column(String)
     signature_date_1 = Column(String)
     signature_date_2 = Column(String)
+    chief_accountant = Column(String)
+    chief = Column(String)
     time_created = Column(DateTime(timezone=True), server_default=func.now())
     time_updated = Column(DateTime(timezone=True), onupdate=func.now())
     id = Column(String, primary_key=True, index=True)

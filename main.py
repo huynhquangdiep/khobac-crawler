@@ -85,8 +85,8 @@ async def get_invoice_detail(sub_invoice_id: str):
         invoice_id = invoice.invoice_id
         # Remove unnecessary fields for the summary
         summary_fields = ["temp_payment_07", "bank_account", "location", "signature_date_1", "signature_date_2",
-                        "invoice_id", "time_created", "organization", "time_updated",
-                        "code_invoice", "organization_code", "sub_invoice_id", "organization_received"]
+            "invoice_id", "time_created", "organization", "time_updated", "code_invoice", "organization_code", 
+            "sub_invoice_id", "organization_received", "chief_accountant", "chief"]
         summary_data = {field: getattr(invoice, field, None) for field in summary_fields}
         
         # Create or update the dictionary for the current invoice_id
@@ -208,4 +208,4 @@ def search_invoices(
 # To run locally
 if __name__ == '__main__':
     module = "main:app"
-    uvicorn.run(module, host='0.0.0.0', port=8002, reload=True)
+    uvicorn.run(module, host='0.0.0.0', port=8000, reload=True)

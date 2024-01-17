@@ -83,29 +83,52 @@ class PythonOrgSearch(unittest.TestCase):
         except Exception as e:
             print(f"An error occurred: {e}")
 
-    def get_signature_dates(self):
+    def get_signature_infor(self):
         responses = self.driver.find_elements(By.XPATH, "//*[contains(text(), 'Người ký:')]")
-        
+
+        array = []
+        for response in responses:
+            array.append(response.text)
+
         get_signature_date_1 = None
         get_signature_date_2 = None 
+        chief_accountant = None
+        chief = None
 
-        i = 1
-        while i < len(responses):
-            # Define the pattern for matching the date and time
+        i = 0
+        while i < len(array):
             pattern = r"Ngày ký: (\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2})"
-            # Use re.search to find the pattern in the text
-            match = re.search(pattern, responses[i].text)
-            # If there's a match, print the extracted date and time
+            match = re.search(pattern, array[i])
             if match:
-                if i == 1:
+                if i == 0:
                     get_signature_date_1 = match.group(1)
-                else:  
+                elif i == 2:
                     get_signature_date_2 = match.group(1)
             else:
-                print("Pattern not found.")
-            i = i +2
+                print("Date not found.")
 
-        return [get_signature_date_1, get_signature_date_2]
+            i = i + 2
+
+
+        i = 0
+        while i <= 1:
+            pattern_signer = r"Người ký: (.+)"
+            match = re.search(pattern_signer, array[i])
+            if match:
+                if i == 0:
+                    chief = match.group(1)
+                elif i == 1:
+                    chief_accountant = match.group(1)
+            else:
+                print("chief_accountant and cheif not found.")
+            i = i + 1
+
+        return [
+            get_signature_date_1, 
+            get_signature_date_2,
+            chief_accountant,
+            chief
+            ]
     
     def get_temp_docs(self, string):
         # Define the pattern for matching the desired substring
@@ -131,7 +154,7 @@ class PythonOrgSearch(unittest.TestCase):
             organization = self.get_content_by_key_search("Đơn vị sử dụng Ngân sách:")
             organization_code = self.get_content_by_key_search("Mã đơn vị:")
             organization_received = self.get_content_by_key_search("Đơn vị nhận tiền:")
-            get_signature_dates = self.get_signature_dates()
+            signature_infor = self.get_signature_infor()
             elements = self.driver.find_elements("css selector", ".jrtableframe div")
             temp_payment_07 = self.get_temp_docs(self.get_content_by_key_search("(Kèm theo Giấy rút dự toán, Ủy nhiệm chi, Giấy đề nghị thanh toán tạm ứng số:"))
         
@@ -165,8 +188,10 @@ class PythonOrgSearch(unittest.TestCase):
                     "organization_received": organization_received,
                     "bank_account": "",
                     "location": "",
-                    "signature_date_1": get_signature_dates[0], 
-                    "signature_date_2": get_signature_dates[1]
+                    "signature_date_1": signature_infor[0], 
+                    "signature_date_2": signature_infor[1],
+                    "chief_accountant": signature_infor[2],
+                    "chief": signature_infor[3],
                 }
                 i += 12
                 data_response = json.dumps(data, ensure_ascii=True)
@@ -181,7 +206,7 @@ class PythonOrgSearch(unittest.TestCase):
         invoice_id = self.get_content_by_key_search("Số:")
         parts = invoice_id.split()
         sub_invoice_id = parts[-1]
-        get_signature_dates = self.get_signature_dates()
+        signature_infor = self.get_signature_infor()
         invoice_id = self.get_content_by_key_search("Số:")
         content_arr = self.driver.find_elements(By.CSS_SELECTOR, content_selector)
         money = self.driver.find_elements(By.CSS_SELECTOR, money_selector)
@@ -237,8 +262,10 @@ class PythonOrgSearch(unittest.TestCase):
                 "organization_received": organization_received,
                 "bank_account": bank_account,
                 "location": location,
-                "signature_date_1": get_signature_dates[0], 
-                "signature_date_2": get_signature_dates[1]
+                "signature_date_1": signature_infor[0], 
+                "signature_date_2": signature_infor[1],
+                "chief_accountant": signature_infor[2],
+                "chief": signature_infor[3],
             }
             # output.append(data)
             i = i + 1
@@ -416,12 +443,39 @@ class PythonOrgSearch(unittest.TestCase):
         time.sleep(5)
         self.handle_close_modal()
         return self.driver.switch_to.parent_frame()
+    
+    def internal_testing(self): 
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/07.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a1.html")
+        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a2.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c1.html")
+        
+        
+    
+        code_value = self.get_content_by_key_search("Mẫu số")
+        print(code_value)
+
+        if code_value == constants.MAU_SO_16a1:
+            self.process_model(code_value, '.jrcel[class*="cel_0_"]', '.jrcel[class*="cel_soTien_"]', "Đơn vị rút dự toán:", "Tại KBNN (NH):")
+        
+        elif code_value == constants.MAU_SO_16a2:
+            self.process_model(code_value, '.jrcel[class*="cel_0_"]', '.jrcel[class*="cel_5_"]', "Đơn vị rút dự toán:", "Tại KBNN (NH):")
+        elif code_value == constants.MAU_SO_16c:
+            self.process_model(code_value, '.jrcel[class*="cel_0_"]', '.jrcel[class*="cel_3_"]', "Đơn vị trả tiền:", "Tại Kho bạc Nhà nước (NH):")
+        
+        elif code_value == constants.MAU_SO_16c1:
+            self.process_model(code_value, '.jrcel[class*="cel_0_"]', '.jrcel[class*="cel_3_"]', "Đơn vị trả tiền:", "Tại Kho bạc Nhà nước (NH):")
+        elif code_value == constants.MAU_SO_07:
+            self.process_model_07(code_value)
+        print('ok')
 
     def test_process_page(self):
-        
-        self.login()
-        hrefs = self.get_list_href()
-        self.handle_click_event(hrefs)
+        self.internal_testing()
+
+        # self.login()
+        # hrefs = self.get_list_href()
+        # self.handle_click_event(hrefs)
 
 ######################### End #################################
 
