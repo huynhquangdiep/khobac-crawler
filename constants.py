@@ -18,8 +18,7 @@ URL_AFTER_LOGIN = "https://dvc.vst.gov.vn/backend/faces/YCTTTimKiemDonGianChungT
 USER_NAME = "mn\khanhnn06"
 PASSWORD = "Lechich@123"
 
-YEAR = "%H23%"
-YEAR_MONTH = "%2309%"
-YEAR_MONTH_FOLDER = "2309"
+YEAR = "%H24%"
+YEAR_MONTH = "%2401%"
 
-API_URL = "http://127.0.0.1:8002/invoices"
+API_URL = "http://127.0.0.1:8000/invoices"

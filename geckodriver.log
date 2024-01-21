@@ -772,3 +772,31 @@ Dynamically enable window occlusion 1
 !!! error running onStopped callback: TypeError: callback is not a function
 console.error: (new Error("Data is not ready.", "resource://gre/modules/JSONFile.sys.mjs", 178))
 JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 472: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1705798015218	geckodriver	INFO	Listening on 127.0.0.1:53697
+1705798018261	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53698" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofile0bjovJ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1705798018549	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1705798018605	Marionette	INFO	Listening on port 53730
+WebDriver BiDi listening on ws://127.0.0.1:53698
+Read port: 53730
+1705798018750	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:53698/devtools/browser/6e679beb-db69-4ea3-b41d-d690a8fc0607
+1705798020078	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1705798048615	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1705798438965	Marionette	INFO	Stopped listening on port 53730
+Dynamically enable window occlusion 1
+ng command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54745" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Diep\\AppData\\Local\\Temp\\rust_mozprofilerBxvNA"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1705798145776	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1705798145824	Marionette	INFO	Listening on port 54770
+WebDriver BiDi listening on ws://127.0.0.1:54745
+Read port: 54770
+1705798145947	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:54745/devtools/browser/29c8513e-4a28-40c1-80ba-5d7e626ecc40
+1705798175795	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1705798441386	Marionette	INFO	Stopped listening on port 54770
+Dynamically enable window occlusion 1

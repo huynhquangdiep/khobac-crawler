@@ -85,50 +85,11 @@ class PythonOrgSearch(unittest.TestCase):
 
     def get_signature_infor(self):
         responses = self.driver.find_elements(By.XPATH, "//*[contains(text(), 'Người ký:')]")
-
         array = []
         for response in responses:
             array.append(response.text)
 
-        get_signature_date_1 = None
-        get_signature_date_2 = None 
-        chief_accountant = None
-        chief = None
-
-        i = 0
-        while i < len(array):
-            pattern = r"Ngày ký: (\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2})"
-            match = re.search(pattern, array[i])
-            if match:
-                if i == 0:
-                    get_signature_date_1 = match.group(1)
-                elif i == 2:
-                    get_signature_date_2 = match.group(1)
-            else:
-                print("Date not found.")
-
-            i = i + 2
-
-
-        i = 0
-        while i <= 1:
-            pattern_signer = r"Người ký: (.+)"
-            match = re.search(pattern_signer, array[i])
-            if match:
-                if i == 0:
-                    chief = match.group(1)
-                elif i == 1:
-                    chief_accountant = match.group(1)
-            else:
-                print("chief_accountant and cheif not found.")
-            i = i + 1
-
-        return [
-            get_signature_date_1, 
-            get_signature_date_2,
-            chief_accountant,
-            chief
-            ]
+        return array
     
     def get_temp_docs(self, string):
         # Define the pattern for matching the desired substring
@@ -188,10 +149,10 @@ class PythonOrgSearch(unittest.TestCase):
                     "organization_received": organization_received,
                     "bank_account": "",
                     "location": "",
-                    "signature_date_1": signature_infor[0], 
-                    "signature_date_2": signature_infor[1],
-                    "chief_accountant": signature_infor[2],
-                    "chief": signature_infor[3],
+                    "signer_1": signature_infor[0], 
+                    "signer_2": signature_infor[1],
+                    "signer_3": signature_infor[2],
+                    "signer_4": signature_infor[3],
                 }
                 i += 12
                 data_response = json.dumps(data, ensure_ascii=True)
@@ -262,10 +223,10 @@ class PythonOrgSearch(unittest.TestCase):
                 "organization_received": organization_received,
                 "bank_account": bank_account,
                 "location": location,
-                "signature_date_1": signature_infor[0], 
-                "signature_date_2": signature_infor[1],
-                "chief_accountant": signature_infor[2],
-                "chief": signature_infor[3],
+                "signer_1": signature_infor[0], 
+                "signer_2": signature_infor[1],
+                "signer_3": signature_infor[2],
+                "signer_4": signature_infor[3],
             }
             # output.append(data)
             i = i + 1
@@ -447,9 +408,13 @@ class PythonOrgSearch(unittest.TestCase):
     def internal_testing(self): 
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/07.html")
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a1.html")
-        self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a2.html")
+        # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16a2.html")
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c.html")
         # self.driver.get("file:///F:/01Project/03KhoBac/khobac-crawler/types/16c1.html")
+
+        self.driver.get("file:///D:/01Projects/03KhoBac/khobac-crawler/types/16a2.html")
+
+        
         
         
     

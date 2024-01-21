@@ -21,14 +21,12 @@ class Invoice(BaseModel):
     organization_received: Optional[str] = None
     bank_account: Optional[str] = None
     location: Optional[str] = None
-    signature_date_1: Optional[str] = None
-    signature_date_2: Optional[str] = None
-    chief_accountant: Optional[str] = None
-    chief: Optional[str] = None
+    signer_1: Optional[str] = None
+    signer_2: Optional[str] = None
+    signer_3: Optional[str] = None
+    signer_4: Optional[str] = None
 
     id:Optional[str] = None
 
     class Config:
         from_attributes  = True
-
-    
